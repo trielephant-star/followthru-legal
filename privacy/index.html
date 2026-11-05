@@ -22,56 +22,67 @@
 <body>
 <main>
 <h1>FollowThru Privacy Policy</h1>
-<p class="meta">Last updated: 30 October 2026</p>
+<p class="meta">Last updated: 5 November 2026</p>
 
-<p class="short">FollowThru is a daily coach for people with a side hustle, with Momo the sloth. This policy explains what we keep, why, who sees it, and how to delete it. Short version: your data is yours, we don't sell it, we don't show ads, and you can delete everything inside the app.</p>
+<p class="short">FollowThru is a daily accountability app for people building something of their own, with Momo the sloth as your coach. Short version: your data is yours. We don't sell it, we don't show ads, Momo's AI is never trained on it, and you can delete everything from inside the app.</p>
+
+<h2>Your account</h2>
+<p>When you first open FollowThru, it creates a private account for you with no name or email, so your project is saved from the start. You can then save it with an email address (we email you a 6-digit code; there's no password), Sign in with Apple, or Sign in with Google. Saving it lets you sign back in on a new phone. With Apple or Google we receive your email address (Apple may give us a private relay address instead) and, if you allow it, your name. We never receive your Apple or Google password.</p>
 
 <h2>What FollowThru keeps</h2>
-<p><strong>On your phone (always):</strong> your goals and settings, your side hustle details (what it is, how far along, your 90-day goal and weekly hours), your daily One Thing, your Power Hour sessions, your Ship Log, your parked ideas, your ticks and counts for each day, your to-dos, your check-in answers, anything you write in the optional journal step, your streak and points. The app works fully with nothing leaving your phone.</p>
-<p><strong>In your account (only if you create one):</strong> the same information, so it survives a lost phone or a new device. To make an account you give us an email address; we email you a 6-digit code and keep no password. We also keep the name you tell Momo, if you shared it.</p>
-
-<h2>Where your account data lives</h2>
-<p>In a database run by Supabase, hosted in the United States (AWS, N. Virginia). Every row is locked so that only the signed-in person can read it. Email codes are sent by an email delivery provider on our behalf.</p>
-
-<h2>AI features (Claude by Anthropic)</h2>
-<p>AI features are <strong>off until you say yes</strong>, and only work if you have an account.</p>
 <ul>
-  <li><strong>Morning plan:</strong> if you turn it on, each morning the names of your goals, how many days in the past week you finished each one, and the titles of to-dos due soon are sent to Claude, an AI system made by Anthropic, to write your focus and tip. <strong>Your journal and how you feel are not sent.</strong></li>
-  <li><strong>Evening reply:</strong> only when you tap <strong>"Hear what Momo thinks"</strong>, tonight's check-in is sent to Claude to write Momo's reply. This includes your answers, how you feel, and anything you wrote in the journal step. It is sent only because you tapped the button.</li>
-  <li><strong>Ask Momo (chat):</strong> only after you say yes, and only for signed-in users. When you send a message, it goes to Claude together with your recent chat messages, your side hustle details (type, stage, 90-day goal, weekly hours), the names of your daily goals, your open to-dos with deadlines, and today's One Thing. <strong>Your journal and how you feel are not sent.</strong> Momo can suggest changes to your to-dos and plan; nothing changes until you tap Apply. The chat history is kept on your phone only (you can clear it with "New chat"). Free accounts may have a daily limit on chats. If you write words that suggest a crisis, Momo shows the 988 Lifeline and does not send the message to the AI. Turn this off any time on the Me screen.</li>
+  <li><strong>About you:</strong> the first name you give, your situation (for example a side project next to a job), your time zone, your check-in times and your app settings.</li>
+  <li><strong>Your projects:</strong> each project's name, who it's for, its type and stage, your goal number and its history, and your weekly plan.</li>
+  <li><strong>Your days:</strong> each day's Move and its size, steps under it, your check-in answers, what got in the way, notes, links and proof photos you add, milestones in your Ship Log, and weekly recaps.</li>
+  <li><strong>Chats with Momo:</strong> your messages and his replies, and pictures you send in the chat. Pictures are deleted after 30 days.</li>
+  <li><strong>Momo's memory:</strong> short notes Momo learns from your chats and check-ins (for example "works on it after 9pm") so he doesn't ask twice, plus searchable snippets of past Moves and notes. You can see and delete every note in Settings &rarr; What Momo knows.</li>
+  <li><strong>Usage counts:</strong> how many chats and other Momo features you've used each week, to apply fair-use limits.</li>
+  <li><strong>Feedback:</strong> if you send feedback, your message, an optional screenshot, the screen you were on, the app version and your phone type.</li>
 </ul>
-<p>Anthropic processes this to produce the reply under its own terms and privacy policy (<a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a>). We don't use your data to train AI models, and we don't ask Anthropic to. You can turn the morning plan off any time on the Me screen.</p>
 
-<h2>Anonymous usage stats (optional)</h2>
-<p>If you say yes (once, in the welcome, or any time on the Me screen), FollowThru sends anonymous events to PostHog, such as "started a Power Hour" with the number of minutes. They carry a random id made on your phone and the app version, and are not linked to your account. They never include your goals, One Things, ideas, names, journal or anything you typed. Turn it off any time on the Me screen and the random id is erased.</p>
+<h2>Where it lives</h2>
+<p>In a database run by Supabase, hosted in the United States (AWS, N. Virginia). Every row is locked so only you can read or change it. Searching Momo's memory happens inside that same service; no other company sees it. A copy of your recent data is also kept on your phone so the app works offline.</p>
 
-<h2>Feedback</h2>
-<p>The "Tell Momo" button saves your message, the screen you were on, the app version and your phone type to your account so the developer can read it. Don't put anything in there you wouldn't want read.</p>
+<h2>Momo's AI (Claude by Anthropic)</h2>
+<p>Momo's replies are written by Claude, an AI system made by Anthropic. To write a reply, FollowThru sends Anthropic what Momo needs for that moment: your message and recent messages in that chat, your project details and goal, your recent Moves and check-ins, Momo's notes about you, related past notes, and any picture you attached. Anthropic processes this to produce the reply under its own terms and privacy policy (<a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a>). Your data is not used to train AI models.</p>
+<p>Under some replies Momo offers buttons (for example "Start 10-min focus" or "Add to this week"). Nothing changes until you tap one.</p>
+<p>If something you write suggests you may be in crisis, it is not sent to the AI. The app shows the 988 Suicide &amp; Crisis Lifeline instead.</p>
 
-<h2>Reminders</h2>
-<p>Reminders are scheduled on your phone itself. They only appear if you allow notifications, and you can turn them off in the app or in your phone's settings.</p>
+<h2>Email</h2>
+<p>Sign-in codes are sent by our email delivery provider (Resend) on our behalf. We only email you codes you ask for and replies if you write to us.</p>
+
+<h2>Subscriptions</h2>
+<p>FollowThru is free during the beta. When FollowThru Pro launches, payment is handled by Apple or Google; we never see your card details. A service called RevenueCat tells the app whether your account has Pro, using your account's random id.</p>
+
+<h2>Usage statistics</h2>
+<p>To learn which features help, FollowThru sends usage events to PostHog, such as "checked in on a Move" or "started a focus timer", with your account's random id, the app version and your phone type. They never include what you write: no Moves, notes, chats or names. Turn this off any time in Settings &rarr; Share usage stats.</p>
+
+<h2>Notifications</h2>
+<p>Check-ins and the focus timer's "time's up" are scheduled on your phone itself. They only appear if you allow notifications; turn them off in the app or in your phone's settings.</p>
 
 <h2>What we don't do</h2>
 <ul>
-  <li>No ads, and no selling or renting your data.</li>
+  <li>No ads, and no selling, renting or sharing your data for advertising.</li>
   <li>No tracking you across other apps or websites.</li>
-  <li>No crash-reporting tools at this time, and no usage statistics unless you switch them on (see Anonymous usage stats above). If we add anything, this page changes first.</li>
-  <li>No medical, diagnostic or mental-health service. FollowThru is a habit coach, not a replacement for professional care.</li>
+  <li>No crash-reporting tools at this time. If we add any, this page changes first.</li>
+  <li>No medical, diagnostic or mental-health service. FollowThru is a productivity coach, not a replacement for professional care.</li>
 </ul>
 
-<h2>If you're struggling</h2>
-<p>If something you write suggests you may be in crisis, the app shows the <strong>988 Suicide &amp; Crisis Lifeline</strong> (call or text 988 in the US). Outside the US, please contact your local emergency number.</p>
+<h2>How long we keep it</h2>
+<p>As long as your account exists, except chat pictures (30 days). When you delete your account, everything in it is erased.</p>
 
 <h2>Deleting your data</h2>
 <ul>
-  <li><strong>Account and everything in it:</strong> Me, then Delete my account. This erases your account data and everything on that phone, and it can't be undone.</li>
-  <li><strong>Just this phone, no account:</strong> deleting the app removes everything stored on it.</li>
-  <li><strong>Can't open the app?</strong> Email <a href="mailto:helpme.trielephant@gmail.com">helpme.trielephant@gmail.com</a> from the address on your account and we'll delete it within 30 days. More details on the <a href="../delete-data/">delete your data</a> page.</li>
+  <li><strong>In the app:</strong> Settings &rarr; Delete account. This erases your account and every project, Move, photo, chat and memory note in it, and it can't be undone.</li>
+  <li><strong>Can't open the app?</strong> Email <a href="mailto:helpme.trielephant@gmail.com">helpme.trielephant@gmail.com</a> and we'll delete it within 30 days. See <a href="../delete-data/">Delete your data</a>.</li>
 </ul>
-<p>Messages we emailed you and security logs kept by our service providers may persist briefly under their own retention rules.</p>
+<p>Security and delivery logs kept by our service providers may persist briefly under their own retention rules.</p>
 
-<h2>Children</h2>
-<p>FollowThru is for people 13 and older. We don't knowingly collect data from children under 13; if you believe a child has an account, email us and we'll remove it.</p>
+<h2>Your rights</h2>
+<p>You can see most of your data in the app, correct it there, and delete it at any time. For a copy of your data or any other request, email us and we'll answer within 30 days.</p>
+
+<h2>Age</h2>
+<p>FollowThru is for adults, 18 and older. We don't knowingly collect data from anyone younger; if you believe a minor has an account, email us and we'll remove it.</p>
 
 <h2>Changes and contact</h2>
 <p>If we make a meaningful change, we'll update the date above and tell you in the app. Questions or requests: <a href="mailto:helpme.trielephant@gmail.com">helpme.trielephant@gmail.com</a>.</p>
