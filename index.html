@@ -3,23 +3,515 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FollowThru</title>
+<title>FollowThru: your accountability partner for the thing you’re building</title>
+<meta name="description" content="One small Move a day for your side project. Momo the sloth checks in each evening, helps when you’re stuck, and remembers your progress. Join the beta for iPhone and Android.">
+<link rel="canonical" href="https://usefollowthru.com/">
+<meta name="theme-color" content="#FBF6EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1E1712" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://usefollowthru.com/">
+<meta property="og:title" content="FollowThru: your accountability partner for the thing you’re building">
+<meta property="og:description" content="One small Move a day. Momo the sloth checks in, helps when you’re stuck, and remembers your progress.">
+<meta property="og:image" content="https://usefollowthru.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#fffaf0; --ink:#2b2418; --accent:#0b7fc4; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#1b1712; --ink:#f4ecdc; --accent:#6cc0f0; } }
-  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-  main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
-  a { color:var(--accent); }
+  :root {
+    --bg: #FBF6EE; --bg-alt: #F4ECDE; --card: #FFFFFF; --ink: #2E2219; --ink-soft: #5A4A3E; --muted: #6B5A4C;
+    --line: #D2C1AA; --green: #1C7F48; --green-deep: #12592F; --green-tint: #E3F2E7; --green-bright: #2FB36B;
+    --banana: #F2B33D; --on-green: #FFFFFF; --shadow: 0 1px 0 rgba(46,34,25,.04), 0 12px 32px -12px rgba(46,34,25,.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1E1712; --bg-alt: #262019; --card: #33291F; --ink: #F6EFE6; --ink-soft: #E2D6C8; --muted: #D2C4B5;
+      --line: #544B43; --green: #4CC27E; --green-deep: #2E8F57; --green-tint: #1F3527; --on-green: #0E2416;
+      --shadow: 0 12px 32px -12px rgba(0,0,0,.6);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 18px/1.6 Nunito, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  img, svg { display: block; max-width: 100%; }
+  a { color: var(--green); }
+  h1, h2, h3 { font-family: "Baloo 2", Nunito, system-ui, sans-serif; line-height: 1.08; margin: 0; letter-spacing: -.01em; }
+  h1 { font-size: clamp(2.5rem, 6vw, 4.1rem); font-weight: 800; }
+  h2 { font-size: clamp(2rem, 4.4vw, 2.9rem); font-weight: 800; }
+  h3 { font-size: 1.4rem; font-weight: 700; }
+  p { margin: 0; }
+  .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+  .eyebrow { font: 800 .8rem/1 Nunito, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+  .lead { font-size: 1.2rem; color: var(--ink-soft); }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--card); padding: 8px 14px; border-radius: 10px; z-index: 10; }
+  .skip:focus { left: 8px; }
+  :focus-visible { outline: 3px solid var(--green-bright); outline-offset: 3px; border-radius: 8px; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 26px;
+    border: 0; border-radius: 999px; background: var(--green); color: var(--on-green); font: 800 1.15rem/1 "Baloo 2", sans-serif;
+    text-decoration: none; cursor: pointer; box-shadow: 0 4px 0 var(--green-deep); transition: transform .08s, box-shadow .08s; }
+  .btn:hover { filter: brightness(1.05); }
+  .btn:active { transform: translateY(4px); box-shadow: 0 0 0 var(--green-deep); }
+  .btn[disabled] { opacity: .7; cursor: default; }
+  .btn-small { min-height: 42px; padding: 0 18px; font-size: 1rem; box-shadow: 0 3px 0 var(--green-deep); }
+
+  /* Header */
+  header.site { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+  header.site.scrolled { border-bottom-color: var(--line); }
+  .nav { display: flex; align-items: center; gap: 24px; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); font: 800 1.5rem/1 "Baloo 2", sans-serif; }
+  .brand img { width: 40px; height: 40px; }
+  .brand b { font-weight: 800; }
+  .brand span { color: var(--green); }
+  .nav-links { display: flex; gap: 22px; margin-left: auto; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-weight: 700; font-size: 1rem; }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 760px) { .nav-links { display: none; } .nav .btn-small { margin-left: auto; } }
+
+  /* Hero */
+  .hero { padding: 56px 0 88px; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .hero h1 { margin: 16px 0 18px; }
+  .hero .lead { max-width: 34ch; }
+  .hero-note { margin-top: 14px; color: var(--muted); font-size: .95rem; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .hero { padding-top: 32px; } }
+
+  /* Signup form */
+  form.signup { margin-top: 28px; display: grid; gap: 12px; max-width: 480px; }
+  .signup-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .signup input[type=email] { flex: 1 1 220px; min-height: 52px; padding: 0 18px; border-radius: 999px; border: 2px solid var(--line);
+    background: var(--card); color: var(--ink); font: 600 1.05rem Nunito, sans-serif; }
+  .signup input[type=email]:focus { border-color: var(--green); outline: none; }
+  .platforms { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; color: var(--ink-soft); font-size: .95rem; }
+  .platforms label { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; min-height: 40px; border-radius: 999px;
+    border: 2px solid var(--line); background: var(--card); cursor: pointer; font-weight: 700; }
+  .platforms input { accent-color: var(--green); }
+  .platforms label:has(input:checked) { border-color: var(--green); background: var(--green-tint); color: var(--ink); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form-msg { min-height: 1.6em; font-weight: 700; color: var(--ink-soft); }
+  .form-msg.ok { color: var(--green); }
+
+  /* Phone mockup (Today screen) */
+  .stage { position: relative; display: flex; justify-content: center; }
+  .stage::before { content: ""; position: absolute; inset: 6% -10% 0; background: radial-gradient(closest-side, var(--green-tint), transparent 72%); z-index: 0; }
+  .phone { position: relative; z-index: 1; width: 300px; aspect-ratio: 9 / 19; border-radius: 46px; padding: 12px; background: #2E2219;
+    box-shadow: 0 40px 80px -30px rgba(46,34,25,.55), inset 0 0 0 2px #4A3626; transform: rotate(2deg); }
+  .screen { height: 100%; border-radius: 36px; overflow: hidden; background: linear-gradient(#CFE8F7, #FBF6EE 46%); color: #2E2219;
+    padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; font-size: 12px; line-height: 1.4; }
+  .screen .status { display: flex; justify-content: space-between; font-weight: 800; font-size: 11px; padding: 0 6px; }
+  .screen .greet { font: 800 22px/1 "Baloo 2", sans-serif; margin-top: 4px; padding: 0 4px; }
+  .scene { position: relative; height: 112px; }
+  .scene img { position: absolute; left: 50%; bottom: 8px; width: 104px; transform: translateX(-50%); animation: bob 3.4s ease-in-out infinite; }
+  .scene .branch { position: absolute; left: 0; right: 0; bottom: 0; height: 10px; border-radius: 6px; background: #6B4F3A; }
+  @keyframes bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -4px); } }
+  .m-card { background: #fff; border: 2px solid #D2C1AA; border-radius: 18px; padding: 12px 14px; }
+  .m-label { font-weight: 800; font-size: 9.5px; letter-spacing: .1em; color: #6B5A4C; }
+  .m-move { font: 800 16px/1.15 "Baloo 2", sans-serif; margin: 4px 0; }
+  .m-meta { color: #5A4A3E; }
+  .m-btn { margin-top: 10px; text-align: center; background: #1C7F48; color: #fff; border-radius: 14px; padding: 9px; font: 800 14px/1 "Baloo 2", sans-serif; box-shadow: 0 3px 0 #12592F; }
+  .m-step { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+  .m-tick { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #D2C1AA; flex: none; }
+  .m-tick.on { background: #1C7F48; border-color: #1C7F48; }
+  .m-step s { color: #6B5A4C; }
+  .m-goal { font: 800 15px/1 "Baloo 2", sans-serif; }
+  .m-bar { height: 8px; border-radius: 6px; background: #EADFC8; margin-top: 8px; overflow: hidden; }
+  .m-bar i { display: block; height: 100%; width: 12%; background: #1C7F48; border-radius: 6px; }
+  .m-week { display: flex; justify-content: space-between; padding: 2px 6px; }
+  .m-week .d { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 10px; color: #6B5A4C; border: 2px solid #D2C1AA; }
+  .m-week .d.on { background: #1C7F48; border-color: #1C7F48; color: #fff; }
+  .m-week .d.today { border-color: #1C7F48; color: #1C7F48; }
+  .m-tabs { margin-top: auto; display: flex; justify-content: space-around; padding: 8px 4px 2px; border-top: 1px solid #EADFC8; font-size: 15px; }
+  .m-tabs span { display: grid; justify-items: center; gap: 2px; color: #6B5A4C; padding: 4px 10px; border-radius: 12px; }
+  .m-tabs span.on { background: #E3F2E7; color: #1C7F48; }
+  .m-tabs em { font-style: normal; font-size: 9.5px; font-weight: 800; }
+  .float { position: absolute; z-index: 2; background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 10px 14px;
+    box-shadow: var(--shadow); font-weight: 700; font-size: .95rem; display: flex; align-items: center; gap: 8px; color: var(--ink); }
+  .float.one { left: -24px; top: 25%; animation: drift 6s ease-in-out infinite; }
+  .float.two { right: -34px; top: 9%; animation: drift 7s ease-in-out .8s infinite; }
+  .float b { color: var(--green); }
+  @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @media (max-width: 560px) { .phone { width: 270px; } .float { display: none; } }
+
+  /* Sections */
+  section { padding: 88px 0; }
+  .alt { background: var(--bg-alt); }
+  .center { text-align: center; }
+  .section-head { max-width: 680px; margin: 0 auto 48px; text-align: center; display: grid; gap: 14px; }
+  .quote { font: 800 clamp(1.7rem, 3.6vw, 2.5rem)/1.15 "Baloo 2", sans-serif; max-width: 20ch; margin: 0 auto; }
+  .quote em { font-style: normal; color: var(--green); }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: var(--card); border: 2px solid var(--line); border-radius: 24px; padding: 28px; box-shadow: var(--shadow); }
+  .step-num { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--green-tint); color: var(--green);
+    font: 800 1.2rem/1 "Baloo 2", sans-serif; margin-bottom: 16px; }
+  .card h3 { margin-bottom: 8px; }
+  .card p { color: var(--ink-soft); }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+  .chip { padding: 4px 12px; border-radius: 999px; border: 2px solid var(--line); font-weight: 700; font-size: .85rem; color: var(--ink-soft); }
+  .chip.on { border-color: var(--green); background: var(--green-tint); color: var(--ink); }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+
+  /* Meet Momo */
+  .momo-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 56px; align-items: center; }
+  .momo-copy { display: grid; gap: 18px; }
+  .points { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 14px; }
+  .points li { display: flex; gap: 12px; align-items: flex-start; color: var(--ink-soft); }
+  .points li::before { content: ""; flex: none; width: 24px; height: 24px; margin-top: 2px; border-radius: 50%;
+    background: var(--green-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C7F48' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/14px no-repeat; }
+  .points strong { color: var(--ink); }
+  .chat { background: var(--card); border: 2px solid var(--line); border-radius: 28px; padding: 22px; box-shadow: var(--shadow); display: grid; gap: 12px; }
+  .msg { max-width: 86%; padding: 12px 16px; border-radius: 20px; font-size: 1rem; line-height: 1.45; }
+  .msg.me { justify-self: end; background: var(--green); color: var(--on-green); border-bottom-right-radius: 6px; }
+  .msg.momo { display: flex; gap: 10px; max-width: 94%; padding: 0; }
+  .msg.momo img { width: 34px; height: 34px; flex: none; margin-top: 2px; }
+  .msg.momo div { background: var(--bg); border: 2px solid var(--line); padding: 12px 16px; border-radius: 20px; border-top-left-radius: 6px; color: var(--ink); }
+  .action { justify-self: start; margin-left: 44px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 18px;
+    border: 2px solid var(--green); background: var(--green-tint); color: var(--green); font-weight: 800; }
+  .action small { display: block; font-weight: 600; color: var(--ink-soft); font-size: .85rem; }
+  .action svg { flex: none; }
+  @media (max-width: 900px) { .momo-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .feature { padding: 24px; border-radius: 22px; background: var(--card); border: 2px solid var(--line); }
+  .feature .ico { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: var(--green-tint); margin-bottom: 14px; font-size: 22px; }
+  .feature h3 { font-size: 1.2rem; margin-bottom: 6px; }
+  .feature p { color: var(--ink-soft); font-size: 1rem; }
+  @media (max-width: 860px) { .features { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+
+  .people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .person { padding: 22px; border-radius: 22px; border: 2px dashed var(--line); }
+  .person b { display: block; font: 800 1.15rem/1.2 "Baloo 2", sans-serif; margin-bottom: 6px; }
+  .person p { color: var(--ink-soft); font-size: 1rem; }
+  @media (max-width: 860px) { .people { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .people { grid-template-columns: 1fr; } }
+
+  .promise { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+  .promise div { text-align: center; padding: 18px 12px; }
+  .promise b { display: block; font: 800 1.15rem/1.2 "Baloo 2", sans-serif; margin-bottom: 4px; }
+  .promise span { color: var(--ink-soft); font-size: .98rem; }
+  @media (max-width: 760px) { .promise { grid-template-columns: 1fr 1fr; } }
+
+  .faq { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+  details { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 0 22px; }
+  summary { cursor: pointer; list-style: none; padding: 18px 0; font: 800 1.15rem/1.3 "Baloo 2", sans-serif; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--green); font-size: 1.5rem; line-height: 1; transition: transform .2s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { padding: 0 0 18px; color: var(--ink-soft); }
+
+  .final { text-align: center; }
+  .final .wrap { display: grid; justify-items: center; gap: 16px; }
+  .final img.momo-big { width: 150px; }
+  .final form.signup { margin-inline: auto; width: 100%; }
+  .final .platforms { justify-content: center; }
+  .final .signup-row { justify-content: center; }
+
+  footer { padding: 40px 0 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+  .foot { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between; }
+  .foot nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .foot a { color: var(--ink-soft); text-decoration: none; font-weight: 700; }
+  .foot a:hover { color: var(--green); }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .no-js .reveal { opacity: 1; transform: none; }
 </style>
 </head>
-<body>
-<main>
-<h1>FollowThru</h1>
-<p>A daily coach for people with a side hustle, with Momo the sloth.</p>
-<ul>
-  <li><a href="privacy/">Privacy policy</a></li>
-  <li><a href="delete-data/">Delete your data</a></li>
-</ul>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="FollowThru home"><img src="momo.svg" alt="" width="40" height="40"><b>Follow<span>Thru</span></b></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#momo">Meet Momo</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-small" href="#join">Join the beta</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">For people building something on the side</p>
+        <h1>Your accountability partner for the thing you’re building.</h1>
+        <p class="lead">Pick one small Move a day. Momo the sloth checks in each evening, helps when you’re stuck, and remembers your progress, so “tomorrow” finally turns into today.</p>
+        <form class="signup" data-source="hero" novalidate>
+          <div class="signup-row">
+            <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+            <input type="email" name="email" required autocomplete="email" placeholder="you@email.com" aria-label="Your email">
+            <button class="btn" type="submit">Join the beta</button>
+          </div>
+          <fieldset class="platforms" style="border:0;padding:0;margin:0">
+            <legend class="hp">Your phone</legend>
+            <span>I use</span>
+            <label><input type="radio" name="platform" value="iphone" checked> iPhone</label>
+            <label><input type="radio" name="platform" value="android"> Android</label>
+          </fieldset>
+          <p class="form-msg" role="status" aria-live="polite"></p>
+        </form>
+        <p class="hero-note">Free during the beta · iPhone and Android · No spam, ever</p>
+      </div>
+
+      <div class="stage" aria-hidden="true">
+        <div class="float one">🔥 <span>Momentum <b>62</b></span></div>
+        <div class="phone">
+          <div class="screen">
+            <div class="status"><span>8:04</span><span>●●● ▮</span></div>
+            <div class="greet">Morning, Jay</div>
+            <div class="scene"><img src="momo.svg" alt=""><div class="branch"></div></div>
+            <div class="m-card">
+              <div class="m-label">TODAY’S MOVE</div>
+              <div class="m-move">Write three topic ideas for the channel</div>
+              <div class="m-meta">30 min · I’ll check in at 8:00 PM</div>
+              <div class="m-step"><span class="m-tick on"></span><s>Skim comments for repeat questions</s></div>
+              <div class="m-step"><span class="m-tick"></span><span>Pick the one you’ve lived</span></div>
+              <div class="m-btn">Check in now</div>
+            </div>
+            <div class="m-card">
+              <div class="m-goal">12 / 100 beta testers</div>
+              <div class="m-bar"><i></i></div>
+            </div>
+            <div class="m-week"><span class="d on">M</span><span class="d on">T</span><span class="d on">W</span><span class="d today">T</span><span class="d">F</span><span class="d">S</span><span class="d">S</span></div>
+            <div class="m-tabs"><span class="on">⌂<em>Today</em></span><span>🚀<em>Ship Log</em></span><span>💬<em>Momo</em></span></div>
+          </div>
+        </div>
+        <div class="float two">✅ <span>Move done. <b>Counted.</b></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt center">
+    <div class="wrap">
+      <p class="quote reveal">Side projects don’t die from bad ideas. They die from <em>“I’ll do it tomorrow.”</em></p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>One Move. One check-in. Every day.</h2>
+        <p class="lead">Not a to-do list. Not a habit tracker. Just the next thing that actually moves your project forward.</p>
+      </div>
+      <div class="steps">
+        <article class="card reveal">
+          <div class="step-num">1</div>
+          <h3>Morning: pick one Move</h3>
+          <p>Momo suggests three small Moves that fit your project and your energy. Pick one in a tap: 15, 30 or 60 minutes.</p>
+          <div class="chips"><span class="chip">15 min</span><span class="chip on">30 min</span><span class="chip">60 min</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="step-num">2</div>
+          <h3>Do it, with a little help</h3>
+          <p>Stuck? Momo breaks it into a 10-minute first step and starts a focus timer with you. Wiped? He shrinks it. Any progress counts.</p>
+          <div class="chips"><span class="chip on">▶ 10-min focus</span><span class="chip">I’m stuck</span><span class="chip">I’m wiped</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="step-num">3</div>
+          <h3>Evening: check in</h3>
+          <p>Did it happen? One tap. Done and “some progress” both count toward your momentum. A missed day is just a fresh start.</p>
+          <div class="chips"><span class="chip on">Done</span><span class="chip">Some progress</span><span class="chip">Not today</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="momo" class="alt">
+    <div class="wrap momo-grid">
+      <div class="momo-copy reveal">
+        <p class="eyebrow">Meet Momo</p>
+        <h2>A coach who remembers, and never guilt-trips.</h2>
+        <p class="lead">Momo used to be the king of “tomorrow.” Now he helps builders actually ship.</p>
+        <ul class="points">
+          <li><span><strong>Knows your project.</strong> Your goal, your stage, what you tried last week, and when you actually have time.</span></li>
+          <li><span><strong>Turns talk into action.</strong> When he suggests something, one tap starts the timer, saves the step or adds it to your week.</span></li>
+          <li><span><strong>Kind, always.</strong> No red, no shame, no streak panic. Momentum, not perfection.</span></li>
+        </ul>
+      </div>
+      <div class="chat reveal" aria-label="Example chat with Momo">
+        <div class="msg me">How do I know what topics will work for this crowd?</div>
+        <div class="msg momo"><img src="momo.svg" alt=""><div>You can’t know yet, and that’s okay. Borrow proof: skim comments on videos for after-work builders and note what people complain about. Want to do that now for 10 minutes?</div></div>
+        <div class="msg me">Yes</div>
+        <div class="msg momo"><img src="momo.svg" alt=""><div>Nice. Jot every repeat frustration. Those are your topics.</div></div>
+        <div class="action">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>
+          <span>Start 10-min focus<small>Skim comments for repeated frustrations</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Everything you need, nothing you don’t</p>
+        <h2>Built for real life after work.</h2>
+      </div>
+      <div class="features">
+        <article class="feature reveal"><div class="ico" aria-hidden="true">📈</div><h3>Momentum, not streaks</h3><p>A score that grows with every Move and forgives a missed day. Life happens.</p></article>
+        <article class="feature reveal"><div class="ico" aria-hidden="true">🚀</div><h3>Ship Log</h3><p>Every Move, milestone and win in one place. Proof you’re further along than you think.</p></article>
+        <article class="feature reveal"><div class="ico" aria-hidden="true">🎯</div><h3>Your real number</h3><p>Followers, sign-ups, sales: track the one number that matters and celebrate each step.</p></article>
+        <article class="feature reveal"><div class="ico" aria-hidden="true">🗓️</div><h3>A plan for the week</h3><p>Rank this week’s Moves once. Each morning, the next one is ready to go.</p></article>
+        <article class="feature reveal"><div class="ico" aria-hidden="true">🔔</div><h3>Gentle check-ins</h3><p>A nudge in the morning and one in the evening, at times you choose. That’s it.</p></article>
+        <article class="feature reveal"><div class="ico" aria-hidden="true">🧩</div><h3>More than one project</h3><p>Channel and store? Switch projects anytime. Each keeps its own Moves and progress.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Who it’s for</p>
+        <h2>For anyone building something on the side.</h2>
+      </div>
+      <div class="people">
+        <div class="person reveal"><b>Creators</b><p>Growing an audience between meetings and school runs.</p></div>
+        <div class="person reveal"><b>App makers</b><p>Shipping after the kids are in bed.</p></div>
+        <div class="person reveal"><b>Store owners</b><p>Turning a weekend shop into real sales.</p></div>
+        <div class="person reveal"><b>Fresh starters</b><p>Laid off, or just done waiting. Building the next thing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Your data, your call</p>
+        <h2>Private by design.</h2>
+      </div>
+      <div class="promise reveal">
+        <div><b>No ads</b><span>Not now, not ever.</span></div>
+        <div><b>Never sold</b><span>Your data isn’t for sale.</span></div>
+        <div><b>Not for training</b><span>Momo’s AI never learns from you.</span></div>
+        <div><b>Delete anytime</b><span>Everything, from inside the app.</span></div>
+      </div>
+      <p class="center" style="margin-top:20px"><a href="privacy/">Read the privacy policy</a></p>
+    </div>
+  </section>
+
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Questions</p>
+        <h2>Good to know</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Is FollowThru free?</summary><p>Yes, free during the beta, with everything included. Later there will be a free plan and an optional Pro plan with more from Momo. Beta testers will hear first.</p></details>
+        <details><summary>Which phones does it work on?</summary><p>iPhone (through TestFlight while in beta) and Android (through Google Play testing). Join with the phone you use and we’ll send the right link.</p></details>
+        <details><summary>How is this different from a to-do or habit app?</summary><p>To-do apps let lists grow forever and habit apps punish a missed day. FollowThru asks for one meaningful Move a day for one project, and a coach who knows that project helps you do it.</p></details>
+        <details><summary>What if I miss a day?</summary><p>Nothing breaks. Momentum dips a little and comes right back with your next Move. Momo never guilt-trips. He helps you make tomorrow’s Move smaller if that’s what it takes.</p></details>
+        <details><summary>What does Momo know about me?</summary><p>Only what you tell him in the app: your project, your Moves and your chats. You can see and delete everything he remembers in Settings. Your data is never sold or used to train AI.</p></details>
+        <details><summary>When do I get access?</summary><p>We’re letting testers in in small groups. Join the beta and we’ll email you an invite with the link for your phone.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="join">
+    <div class="wrap">
+      <img class="momo-big reveal" src="momo.svg" alt="Momo the sloth waving" width="150" height="150">
+      <h2 class="reveal">Be one of the first to try it.</h2>
+      <p class="lead reveal">Free during the beta. We’ll email you an invite for your phone.</p>
+      <form class="signup" data-source="footer" novalidate>
+        <div class="signup-row">
+          <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+          <input type="email" name="email" required autocomplete="email" placeholder="you@email.com" aria-label="Your email">
+          <button class="btn" type="submit">Join the beta</button>
+        </div>
+        <fieldset class="platforms" style="border:0;padding:0;margin:0">
+          <legend class="hp">Your phone</legend>
+          <span>I use</span>
+          <label><input type="radio" name="platform" value="iphone" checked> iPhone</label>
+          <label><input type="radio" name="platform" value="android"> Android</label>
+        </fieldset>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top"><img src="momo.svg" alt="" width="32" height="32"><b>Follow<span>Thru</span></b></a>
+    <nav aria-label="Footer">
+      <a href="privacy/">Privacy</a>
+      <a href="delete-data/">Delete your data</a>
+      <a href="mailto:helpme.trielephant@gmail.com">Contact</a>
+    </nav>
+    <p>© <span id="year">2026</span> FollowThru</p>
+  </div>
+</footer>
+
+<script>
+  document.body.classList.remove('no-js');
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Header line once the page scrolls.
+  const header = document.querySelector('header.site');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Sections fade in as they come into view.
+  const io = 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      }), { rootMargin: '0px 0px -8% 0px' })
+    : null;
+  document.querySelectorAll('.reveal').forEach((el) => (io ? io.observe(el) : el.classList.add('in')));
+
+  // Beta sign-up: saved straight to FollowThru's database. The key below is the public
+  // (publishable) one; the table only accepts new sign-ups and can't be read with it.
+  const SUPABASE_URL = 'https://drrvokcuzswsgjdwwhmn.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_1Bd-M6BIuXuSFHH4IQwRoA_o8MxOV95';
+  const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  document.querySelectorAll('form.signup').forEach((form) => {
+    const msg = form.querySelector('.form-msg');
+    const button = form.querySelector('button');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const email = String(data.get('email') || '').trim();
+      msg.className = 'form-msg';
+      if (data.get('company')) return; // a bot filled the hidden field
+      if (!EMAIL.test(email)) {
+        msg.textContent = 'That email doesn’t look quite right.';
+        form.querySelector('input[type=email]').focus();
+        return;
+      }
+      button.disabled = true;
+      button.textContent = 'Joining…';
+      try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/beta_signups', {
+          method: 'POST',
+          headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+          body: JSON.stringify({ email, platform: data.get('platform'), source: form.dataset.source }),
+        });
+        // 409: already on the list, which is just as good.
+        if (!res.ok && res.status !== 409) throw new Error(String(res.status));
+        msg.className = 'form-msg ok';
+        msg.textContent = res.status === 409
+          ? 'You’re already on the list. Momo will be in touch!'
+          : 'You’re in! Watch your inbox for your invite.';
+        form.reset();
+      } catch {
+        msg.textContent = 'Couldn’t save that. Check your connection and try again.';
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Join the beta';
+      }
+    });
+  });
+</script>
 </body>
 </html>

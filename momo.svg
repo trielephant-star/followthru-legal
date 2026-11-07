@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Momo the sloth">
+  <style>
+    .momo-lid { transform-box: fill-box; transform-origin: top; transform: scaleY(0); animation: momo-blink 6s infinite; }
+    @keyframes momo-blink { 0%, 94%, 100% { transform: scaleY(0); } 96% { transform: scaleY(1); } }
+    .momo-wave { transform-box: view-box; transform-origin: 130px 138px; animation: momo-wave 7s ease-in-out 1.2s infinite; }
+    @keyframes momo-wave { 0%, 30%, 100% { transform: rotate(0); } 6%, 14%, 22% { transform: rotate(-120deg); } 10%, 18% { transform: rotate(-95deg); } }
+    @media (prefers-reduced-motion: reduce) { .momo-lid, .momo-wave { animation: none; } }
+  </style>
+  <defs>
+    <clipPath id="eyes"><circle cx="76" cy="90" r="13.4"/><circle cx="124" cy="90" r="13.4"/></clipPath>
+  </defs>
+  <g stroke="#3A2A1E" stroke-linejoin="round">
+    <path d="M80 166 L80 186 C80 192.5 84 195.5 90 195.5 L93 195.5 C97.5 195.5 98.5 192 98 186 L97 166 Z" fill="#8A6A4F" stroke-width="3"/>
+    <path d="M120 166 L120 186 C120 192.5 116 195.5 110 195.5 L107 195.5 C102.5 195.5 101.5 192 102 186 L103 166 Z" fill="#8A6A4F" stroke-width="3"/>
+    <path d="M70 130 C80 126 120 126 130 130 C136 144 140 158 140 170 C140 174 137 176 133 176 L67 176 C63 176 60 174 60 170 C60 158 64 144 70 130 Z" fill="#2E3538" stroke-width="3"/>
+  </g>
+  <path d="M100 136 L100 174" stroke="#2FB36B" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M63 170.5 L137 170.5" stroke="#2FB36B" stroke-width="3" stroke-linecap="round"/>
+  <g>
+    <path d="M71 138 C67 148 64 155 61 162" fill="none" stroke="#3A2A1E" stroke-width="18" stroke-linecap="round"/>
+    <path d="M71 138 C67 148 64 155 61 162" fill="none" stroke="#2E3538" stroke-width="13" stroke-linecap="round"/>
+    <path d="M62.6 158.4 L61 162" stroke="#2FB36B" stroke-width="13"/>
+    <path d="M55.5 171 L54 176 M59.5 172.5 L59.5 177.5 M63.5 171.5 L64.5 176.5" stroke="#E8D3B8" stroke-width="2.2" stroke-linecap="round"/>
+    <ellipse cx="60" cy="167.5" rx="7" ry="6.5" fill="#8A6A4F" stroke="#3A2A1E" stroke-width="2.5"/>
+  </g>
+  <g stroke="#3A2A1E" stroke-linejoin="round">
+    <path d="M42 86 L30 91 L37 96 L28 102 L38 105 L33 112 L46 112 Z" fill="#8A6A4F" stroke-width="3"/>
+    <path d="M158 86 L170 91 L163 96 L172 102 L162 105 L167 112 L154 112 Z" fill="#8A6A4F" stroke-width="3"/>
+    <g transform="rotate(-3 160 66)">
+      <path d="M158 66 C167 70 173 77 177 85 C169 85 162 80 155 73 Z" fill="#2FB36B" stroke-width="2.5"/>
+      <path d="M158 60 C168 57 176 59 184 54 C183 63 176 68 160 69 Z" fill="#2FB36B" stroke-width="2.5"/>
+    </g>
+    <ellipse cx="100" cy="80" rx="65" ry="57" fill="#8A6A4F" stroke-width="3"/>
+    <path d="M60 54 C58 40 65 30 76 26 L70 13 C81 14 88 18 92 23 L93 6 C104 10 110 17 113 25 L123 12 C129 19 132 27 131 35 L144 31 C144 42 142 50 138 56 Z" fill="#6B4F3A" stroke-width="3"/>
+  </g>
+  <ellipse cx="100" cy="94" rx="52" ry="36" fill="#E8D3B8"/>
+  <path d="M37 64 C60 46 140 46 163 64 L165 78 C140 62 60 62 35 78 Z" fill="#2FB36B" stroke="#3A2A1E" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M52 59 C66 52 82 50 96 50" fill="none" stroke="#7FDDA6" stroke-width="2.5" stroke-linecap="round"/>
+  <ellipse cx="162" cy="71" rx="5" ry="6.5" fill="#2FB36B" stroke="#3A2A1E" stroke-width="2.5"/>
+  <ellipse cx="63" cy="112" rx="7.5" ry="4" fill="#F2A39B"/>
+  <ellipse cx="137" cy="112" rx="7.5" ry="4" fill="#F2A39B"/>
+  <path d="M91 82 C93 93 85 101 72 107 C61 112 51 109 51 100 C51 89 62 80 75 78 C83 77 90 78 91 82 Z" fill="#4A3626"/>
+  <path d="M109 82 C107 93 115 101 128 107 C139 112 149 109 149 100 C149 89 138 80 125 78 C117 77 110 78 109 82 Z" fill="#4A3626"/>
+  <circle cx="76" cy="90" r="13.4" fill="#FFFFFF"/>
+  <circle cx="124" cy="90" r="13.4" fill="#FFFFFF"/>
+  <g class="momo-eyes">
+    <circle cx="77.12" cy="91.12" r="8.4" fill="#1F2A2E"/>
+    <circle cx="74.22" cy="88.92" r="2.9" fill="#FFFFFF"/>
+    <circle cx="80.52" cy="95.32" r="1.35" fill="#FFFFFF"/>
+    <circle cx="122.88" cy="91.12" r="8.4" fill="#1F2A2E"/>
+    <circle cx="119.98" cy="88.92" r="2.9" fill="#FFFFFF"/>
+    <circle cx="126.28" cy="95.32" r="1.35" fill="#FFFFFF"/>
+  </g>
+  <g clip-path="url(#eyes)">
+    <rect class="momo-lid" x="62" y="75.6" width="76" height="28.8" fill="#4A3626"/>
+  </g>
+  <circle cx="76" cy="90" r="13.4" fill="none" stroke="#3A2A1E" stroke-width="2.8"/>
+  <circle cx="124" cy="90" r="13.4" fill="none" stroke="#3A2A1E" stroke-width="2.8"/>
+  <ellipse cx="100" cy="104" rx="9" ry="6" fill="#3A2A1E"/>
+  <ellipse cx="96.5" cy="101.5" rx="3" ry="1.5" fill="#FFFFFF" opacity="0.55"/>
+  <path d="M87.2 112 Q100 115.78 112.8 112 Q100 133 87.2 112 Z" fill="#6B2E25" stroke="#3A2A1E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="100" cy="118.51" rx="4.86" ry="2.63" fill="#EE7B74"/>
+  <!-- Drawn last so the waving paw sits in front of his head. -->
+  <g class="momo-wave">
+    <path d="M129 138 C133 148 136 155 139 162" fill="none" stroke="#3A2A1E" stroke-width="18" stroke-linecap="round"/>
+    <path d="M129 138 C133 148 136 155 139 162" fill="none" stroke="#2E3538" stroke-width="13" stroke-linecap="round"/>
+    <path d="M137.4 158.4 L139 162" stroke="#2FB36B" stroke-width="13"/>
+    <path d="M144.5 171 L146 176 M140.5 172.5 L140.5 177.5 M136.5 171.5 L135.5 176.5" stroke="#E8D3B8" stroke-width="2.2" stroke-linecap="round"/>
+    <ellipse cx="140" cy="167.5" rx="7" ry="6.5" fill="#8A6A4F" stroke="#3A2A1E" stroke-width="2.5"/>
+  </g>
+</svg>
