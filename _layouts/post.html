@@ -1,0 +1,63 @@
+---
+layout: default
+---
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 230 | at_least: 1 -%}
+{%- assign author = page.author | default: site.author.name -%}
+<article class="narrow">
+  <header class="post-head">
+    <p class="crumbs"><a href="/blog/">← All posts</a>{% if page.category %} · <span class="eyebrow">{{ page.category }}</span>{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="dek">{{ page.description }}</p>{% endif %}
+    <div class="byline">
+      <img src="/momo.svg" alt="" width="36" height="36">
+      <span>{{ author }}</span>
+      <span aria-hidden="true">·</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
+      {%- if page.last_modified_at %}
+      <span aria-hidden="true">·</span>
+      <span>Updated {{ page.last_modified_at | date: '%B %-d, %Y' }}</span>
+      {%- endif %}
+      <span aria-hidden="true">·</span>
+      <span>{{ minutes }} min read</span>
+    </div>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {%- if page.faq %}
+  <section class="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">Questions people ask</h2>
+    {%- for item in page.faq %}
+    <details><summary>{{ item.q }}</summary><p>{{ item.a }}</p></details>
+    {%- endfor %}
+  </section>
+  {%- endif %}
+
+  <aside class="cta" aria-label="About FollowThru">
+    <img src="/momo.svg" alt="Momo the sloth" width="92" height="92">
+    <div>
+      <h2>One small Move a day, with Momo</h2>
+      <p>FollowThru is a daily accountability coach for side projects. Pick one small Move, and Momo the sloth helps you do it, checks in each evening and remembers how it went. Free while in beta on iPhone and Android.</p>
+      <a class="btn" href="/#join">Join the beta</a>
+    </div>
+  </aside>
+
+  {%- assign others = site.posts | where_exp: "p", "p.url != page.url" -%}
+  {%- if others.size > 0 %}
+  <section class="more" aria-labelledby="more-title">
+    <h2 id="more-title">Keep reading</h2>
+    <div class="posts">
+      {%- for p in others limit: 2 %}
+      <a class="post-card" href="{{ p.url }}">
+        {% if p.category %}<span class="eyebrow">{{ p.category }}</span>{% endif %}
+        <h2>{{ p.title }}</h2>
+        <p>{{ p.description }}</p>
+      </a>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+</article>

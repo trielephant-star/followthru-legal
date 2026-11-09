@@ -1,5 +1,51 @@
-# GitHub Pages (Jekyll) settings. Keep server code and notes off the public site.
+# GitHub Pages (Jekyll) settings.
+#
+# The landing page, /privacy/ and /delete-data/ are plain HTML with no front matter, so Jekyll
+# copies them as they are. Only the blog (blog/, _posts/, _layouts/) is built by Jekyll.
+
+title: FollowThru
+tagline: One small Move a day for your side project
+description: >-
+  FollowThru is a daily accountability coach for side projects. Pick one small Move a day and
+  Momo the sloth helps you do it, checks in each evening and remembers your progress.
+url: "https://usefollowthru.com"
+baseurl: ""
+lang: en_US
+logo: /app-icon.png
+image: /og.png
+
+author:
+  name: The FollowThru team
+  url: https://usefollowthru.com
+
+social:
+  name: FollowThru
+  links: []
+
+# Blog posts live at /blog/<slug>/
+permalink: /blog/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: blog/feed.xml
+
+# Keep server code, notes and tooling off the public site.
 exclude:
   - supabase
   - CLAUDE.md
   - README.md
+  - scripts
+  - node_modules
+  - package.json
+  - package-lock.json

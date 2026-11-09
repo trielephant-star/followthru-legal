@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FBF6EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1E1712" media="(prefers-color-scheme: dark)">
+{% seo %}
+{% feed_meta %}
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/blog.css">
+{%- if page.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for item in page.faq %}
+    { "@type": "Question", "name": {{ item.q | jsonify }}, "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | jsonify }} } }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="FollowThru home"><img src="/momo.svg" alt="" width="40" height="40"><b>Follow<span>Thru</span></b></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/#how">How it works</a>
+      <a href="/#momo">Meet Momo</a>
+      <a href="/blog/"{% if page.url contains '/blog/' %} aria-current="page"{% endif %}>Blog</a>
+    </nav>
+    <a class="btn btn-small" href="/#join">Join the beta</a>
+  </div>
+</header>
+
+<main id="main">
+{{ content }}
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="/"><img src="/momo.svg" alt="" width="32" height="32"><b>Follow<span>Thru</span></b></a>
+    <nav aria-label="Footer">
+      <a href="/blog/">Blog</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/delete-data/">Delete your data</a>
+      <a href="mailto:support@usefollowthru.com">Contact</a>
+    </nav>
+    <p>© {{ site.time | date: '%Y' }} FollowThru</p>
+  </div>
+</footer>
+</body>
+</html>

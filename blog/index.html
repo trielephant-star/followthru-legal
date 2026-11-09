@@ -1,0 +1,27 @@
+---
+layout: default
+title: "The FollowThru blog: finishing side projects, one small Move at a time"
+description: >-
+  Practical, kind advice for people building something on the side: how to make time after work,
+  stay accountable, cut scope and actually ship. From the team behind FollowThru.
+---
+<div class="wrap">
+  <section class="blog-hero">
+    <img src="/momo.svg" alt="Momo the sloth" width="96" height="96">
+    <p class="eyebrow">The FollowThru blog</p>
+    <h1>Notes for people who build on the side</h1>
+    <p>How to make time, stay on track and actually ship, without the guilt.</p>
+  </section>
+
+  <div class="posts">
+    {%- for post in site.posts %}
+    {%- assign words = post.content | strip_html | number_of_words -%}
+    <a class="post-card{% if forloop.first %} featured{% endif %}" href="{{ post.url }}">
+      {% if post.category %}<span class="eyebrow">{{ post.category }}</span>{% endif %}
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.description }}</p>
+      <span class="meta">{{ post.date | date: '%B %-d, %Y' }} · {{ words | divided_by: 230 | at_least: 1 }} min read</span>
+    </a>
+    {%- endfor %}
+  </div>
+</div>
