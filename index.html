@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FollowThru: your accountability partner for the thing you’re building</title>
-<meta name="description" content="One small Move a day for your side project. Momo the sloth checks in each evening, helps when you’re stuck, and remembers your progress. Join the beta for iPhone and Android.">
+<meta name="description" content="One small Move a day for your side project. Momo the sloth helps you do it, checks in each evening and sends you a Builder Report every Sunday. Join the free beta for iPhone and Android.">
 <link rel="canonical" href="https://usefollowthru.com/">
 <meta name="theme-color" content="#FBF6EE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1E1712" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://usefollowthru.com/">
 <meta property="og:title" content="FollowThru: your accountability partner for the thing you’re building">
-<meta property="og:description" content="One small Move a day. Momo the sloth checks in, helps when you’re stuck, and remembers your progress.">
+<meta property="og:description" content="One small Move a day. Momo the sloth helps you do it, checks in each evening and remembers your progress.">
 <meta property="og:image" content="https://usefollowthru.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -176,6 +176,24 @@
   .action svg { flex: none; }
   @media (max-width: 900px) { .momo-grid { grid-template-columns: 1fr; gap: 36px; } }
 
+  /* Weekly Builder Report */
+  .report-grid { grid-template-columns: 1.05fr .95fr; }
+  .report { background: var(--card); border: 2px solid var(--line); border-radius: 28px; padding: 24px; box-shadow: var(--shadow); display: grid; gap: 14px; }
+  .r-top { display: flex; align-items: center; gap: 10px; }
+  .r-top img { width: 40px; height: 40px; flex: none; }
+  .r-top b { display: block; font: 800 1.3rem/1.1 "Baloo 2", sans-serif; }
+  .r-top small { color: var(--muted); font-weight: 700; font-size: .85rem; }
+  .r-block { border-radius: 18px; padding: 14px 16px; background: var(--bg); border: 2px solid var(--line); }
+  .r-block.noticed { background: var(--green-tint); border-color: var(--green); }
+  .r-label { font: 800 .72rem/1 Nunito, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+  .r-block p { font-size: 1rem; color: var(--ink); line-height: 1.45; }
+  .r-stats { display: flex; gap: 16px; flex-wrap: wrap; font: 800 1.15rem/1.2 "Baloo 2", sans-serif; }
+  .r-stats span { color: var(--muted); font: 700 .85rem Nunito, sans-serif; }
+  .r-moves { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 6px; font-size: .95rem; }
+  .r-moves li { display: flex; gap: 8px; align-items: center; color: var(--ink-soft); }
+  .r-moves li::before { content: ""; width: 14px; height: 14px; flex: none; border-radius: 50%; border: 2px solid var(--line); }
+  @media (max-width: 900px) { .report-grid { grid-template-columns: 1fr; } .report-grid .report { order: 2; } }
+
   .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .feature { padding: 24px; border-radius: 22px; background: var(--card); border: 2px solid var(--line); }
   .feature .ico { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: var(--green-tint); margin-bottom: 14px; font-size: 22px; }
@@ -232,6 +250,7 @@
     <nav class="nav-links" aria-label="Main">
       <a href="#how">How it works</a>
       <a href="#momo">Meet Momo</a>
+      <a href="#report">Builder Report</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-small" href="#join">Join the beta</a>
@@ -244,7 +263,7 @@
       <div>
         <p class="eyebrow">For people building something on the side</p>
         <h1>Your accountability partner for the thing you’re building.</h1>
-        <p class="lead">Pick one small Move a day. Momo the sloth checks in each evening, helps when you’re stuck, and remembers your progress, so “tomorrow” finally turns into today.</p>
+        <p class="lead">Pick one small Move a day. Momo the sloth helps you do it, checks in each evening and remembers how it went, so “tomorrow” finally turns into today.</p>
         <form class="signup" data-source="hero" novalidate>
           <div class="signup-row">
             <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
@@ -272,10 +291,10 @@
             <div class="m-card">
               <div class="m-label">TODAY’S MOVE</div>
               <div class="m-move">Write three topic ideas for the channel</div>
-              <div class="m-meta">30 min · I’ll check in at 8:00 PM</div>
+              <div class="m-meta">30 min · Check-in at 8:00 PM</div>
               <div class="m-step"><span class="m-tick on"></span><s>Skim comments for repeat questions</s></div>
               <div class="m-step"><span class="m-tick"></span><span>Pick the one you’ve lived</span></div>
-              <div class="m-btn">Check in now</div>
+              <div class="m-btn">▶ Start now</div>
             </div>
             <div class="m-card">
               <div class="m-goal">12 / 100 beta testers</div>
@@ -312,15 +331,15 @@
         </article>
         <article class="card reveal">
           <div class="step-num">2</div>
-          <h3>Do it, with a little help</h3>
-          <p>Stuck? Momo breaks it into a 10-minute first step and starts a focus timer with you. Wiped? He shrinks it. Any progress counts.</p>
-          <div class="chips"><span class="chip on">▶ 10-min focus</span><span class="chip">I’m stuck</span><span class="chip">I’m wiped</span></div>
+          <h3>Tap Start now. Do it with Momo.</h3>
+          <p>Momo breaks your Move into a few short steps and starts a timer. Writing? He drafts the first version with you. Stuck? He makes it smaller. Finishing counts as your check-in.</p>
+          <div class="chips"><span class="chip on">▶ Start now</span><span class="chip">Draft with Momo</span><span class="chip">I’m stuck</span></div>
         </article>
         <article class="card reveal">
           <div class="step-num">3</div>
-          <h3>Evening: check in</h3>
-          <p>Did it happen? One tap. Done and “some progress” both count toward your momentum. A missed day is just a fresh start.</p>
-          <div class="chips"><span class="chip on">Done</span><span class="chip">Some progress</span><span class="chip">Not today</span></div>
+          <h3>Evening: a quick check-in</h3>
+          <p>A short chat with Momo about how it went. Done and “some progress” both count toward your momentum. Then plan tomorrow, or keep going if you’ve got time now.</p>
+          <div class="chips"><span class="chip on">Done</span><span class="chip">Some progress</span><span class="chip">Plan tomorrow</span></div>
         </article>
       </div>
     </div>
@@ -333,7 +352,8 @@
         <h2>A coach who remembers, and never guilt-trips.</h2>
         <p class="lead">Momo used to be the king of “tomorrow.” Now he helps builders actually ship.</p>
         <ul class="points">
-          <li><span><strong>Knows your project.</strong> Your goal, your stage, what you tried last week, and when you actually have time.</span></li>
+          <li><span><strong>Knows your project.</strong> Your goal, your stage, what got in your way last week, and when you actually have time.</span></li>
+          <li><span><strong>Does the work with you.</strong> Writing? He drafts it with you. Deciding? He asks the sharp questions. Building? He writes the prompt for your AI tool.</span></li>
           <li><span><strong>Turns talk into action.</strong> When he suggests something, one tap starts the timer, saves the step or adds it to your week.</span></li>
           <li><span><strong>Kind, always.</strong> No red, no shame, no streak panic. Momentum, not perfection.</span></li>
         </ul>
@@ -351,7 +371,43 @@
     </div>
   </section>
 
-  <section>
+  <section id="report">
+    <div class="wrap momo-grid report-grid">
+      <div class="report reveal" aria-label="Example Weekly Builder Report">
+        <div class="r-top"><img src="momo.svg" alt=""><div><b>Your Builder Report</b><small>Sunday · Week 3</small></div></div>
+        <div class="r-block">
+          <div class="r-label">What you shipped</div>
+          <div class="r-stats"><div>5 Moves <span>this week</span></div><div>2h 40m <span>focused</span></div></div>
+          <p style="margin-top:8px">🎉 Launched the waitlist page</p>
+        </div>
+        <div class="r-block noticed">
+          <div class="r-label">Momo noticed</div>
+          <p>Your 15-minute Moves before work got done every time. The hour you saved for Saturday didn’t. Small and early is your superpower.</p>
+        </div>
+        <div class="r-block">
+          <div class="r-label">Next week’s focus</div>
+          <p><strong>Get your first 20 sign-ups</strong></p>
+          <ul class="r-moves">
+            <li>Share the page in two communities</li>
+            <li>Message five people who asked about it</li>
+            <li>Write a short welcome email</li>
+          </ul>
+        </div>
+      </div>
+      <div class="momo-copy reveal">
+        <p class="eyebrow">Every Sunday</p>
+        <h2>Your week, read by a coach who remembers.</h2>
+        <p class="lead">The Weekly Builder Report shows what you shipped, one pattern Momo noticed, and next week’s focus with three Moves ready to go.</p>
+        <ul class="points">
+          <li><span><strong>Proof you’re moving.</strong> Every Move you finished, in one place. Further along than you think.</span></li>
+          <li><span><strong>One honest pattern.</strong> Momo spots what’s working and what keeps getting in the way. Useful, never preachy.</span></li>
+          <li><span><strong>Monday, sorted.</strong> Next week’s Moves are lined up before you’ve had your coffee.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Everything you need, nothing you don’t</p>
@@ -361,14 +417,14 @@
         <article class="feature reveal"><div class="ico" aria-hidden="true">📈</div><h3>Momentum, not streaks</h3><p>A score that grows with every Move and forgives a missed day. Life happens.</p></article>
         <article class="feature reveal"><div class="ico" aria-hidden="true">🚀</div><h3>Ship Log</h3><p>Every Move, milestone and win in one place. Proof you’re further along than you think.</p></article>
         <article class="feature reveal"><div class="ico" aria-hidden="true">🎯</div><h3>Your real number</h3><p>Followers, sign-ups, sales: track the one number that matters and celebrate each step.</p></article>
-        <article class="feature reveal"><div class="ico" aria-hidden="true">🗓️</div><h3>A plan for the week</h3><p>Rank this week’s Moves once. Each morning, the next one is ready to go.</p></article>
-        <article class="feature reveal"><div class="ico" aria-hidden="true">🔔</div><h3>Gentle check-ins</h3><p>A nudge in the morning and one in the evening, at times you choose. That’s it.</p></article>
-        <article class="feature reveal"><div class="ico" aria-hidden="true">🧩</div><h3>More than one project</h3><p>Channel and store? Switch projects anytime. Each keeps its own Moves and progress.</p></article>
+        <article class="feature reveal"><div class="ico" aria-hidden="true">🌄</div><h3>Ship more, unlock more</h3><p>Momo grows as you ship. Earn new scenes, from a leafy canopy to a starry night sky, and share your wins on them.</p></article>
+        <article class="feature reveal"><div class="ico" aria-hidden="true">🔔</div><h3>Gentle check-ins</h3><p>A nudge in the morning and one in the evening, at times you choose. Leave mid-chat and Momo’s reply comes to you.</p></article>
+        <article class="feature reveal"><div class="ico" aria-hidden="true">🧩</div><h3>One project in focus</h3><p>Channel and store? Keep one in focus and the rest on one simple list. Switch whenever you like.</p></article>
       </div>
     </div>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Who it’s for</p>
@@ -383,7 +439,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="alt">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Your data, your call</p>
@@ -399,7 +455,7 @@
     </div>
   </section>
 
-  <section id="faq" class="alt">
+  <section id="faq">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Questions</p>
@@ -410,13 +466,13 @@
         <details><summary>Which phones does it work on?</summary><p>iPhone (through TestFlight while in beta) and Android (through Google Play testing). Join with the phone you use and we’ll send the right link.</p></details>
         <details><summary>How is this different from a to-do or habit app?</summary><p>To-do apps let lists grow forever and habit apps punish a missed day. FollowThru asks for one meaningful Move a day for one project, and a coach who knows that project helps you do it.</p></details>
         <details><summary>What if I miss a day?</summary><p>Nothing breaks. Momentum dips a little and comes right back with your next Move. Momo never guilt-trips. He helps you make tomorrow’s Move smaller if that’s what it takes.</p></details>
-        <details><summary>What does Momo know about me?</summary><p>Only what you tell him in the app: your project, your Moves and your chats. You can see and delete everything he remembers in Settings. Your data is never sold or used to train AI.</p></details>
+        <details><summary>What does Momo know about me?</summary><p>Only what you tell him in the app: your project, your Moves and your chats. You can see what he remembers in Settings → What Momo knows, and delete any of it. Your data is never sold or used to train AI.</p></details>
         <details><summary>When do I get access?</summary><p>We’re letting testers in in small groups. Join the beta and we’ll email you an invite with the link for your phone.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="final" id="join">
+  <section class="final alt" id="join">
     <div class="wrap">
       <img class="momo-big reveal" src="momo.svg" alt="Momo the sloth waving" width="150" height="150">
       <h2 class="reveal">Be one of the first to try it.</h2>
