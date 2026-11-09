@@ -28,6 +28,10 @@ permalink: /blog/:title/
 defaults:
   - scope:
       path: ""
+    values:
+      image: /og.png
+  - scope:
+      path: ""
       type: posts
     values:
       layout: post
