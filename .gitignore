@@ -1,0 +1,5 @@
+CLAUDE.md
+.env.local
+.claude/
+node_modules/
+supabase/.temp/

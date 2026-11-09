@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll) settings. Keep server code and notes off the public site.
+exclude:
+  - supabase
+  - CLAUDE.md
+  - README.md

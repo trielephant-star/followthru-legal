@@ -469,8 +469,8 @@
     : null;
   document.querySelectorAll('.reveal').forEach((el) => (io ? io.observe(el) : el.classList.add('in')));
 
-  // Beta sign-up: saved straight to FollowThru's database. The key below is the public
-  // (publishable) one; the table only accepts new sign-ups and can't be read with it.
+  // Beta sign-up: sent to FollowThru's beta-signup function, which saves it and emails a
+  // confirmation. The key below is the public (publishable) one.
   const SUPABASE_URL = 'https://drrvokcuzswsgjdwwhmn.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_1Bd-M6BIuXuSFHH4IQwRoA_o8MxOV95';
   const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -492,15 +492,20 @@
       button.disabled = true;
       button.textContent = 'Joining…';
       try {
-        const res = await fetch(SUPABASE_URL + '/rest/v1/beta_signups', {
+        const res = await fetch(SUPABASE_URL + '/functions/v1/beta-signup', {
           method: 'POST',
-          headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
-          body: JSON.stringify({ email, platform: data.get('platform'), source: form.dataset.source }),
+          headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            platform: data.get('platform'),
+            source: form.dataset.source,
+            company: data.get('company') || '',
+          }),
         });
-        // 409: already on the list, which is just as good.
-        if (!res.ok && res.status !== 409) throw new Error(String(res.status));
+        if (!res.ok) throw new Error(String(res.status));
+        const result = await res.json().catch(() => ({}));
         msg.className = 'form-msg ok';
-        msg.textContent = res.status === 409
+        msg.textContent = result.already
           ? 'You’re already on the list. Momo will be in touch!'
           : 'You’re in! Watch your inbox for your invite.';
         form.reset();
