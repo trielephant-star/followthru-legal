@@ -115,6 +115,7 @@ footer { padding: 40px 0 56px; border-top: 1px solid var(--line); color: var(--m
 .cta img { width: 92px; }
 .cta h2 { font-size: 1.6rem; margin-bottom: 6px; }
 .cta p { color: var(--ink-soft); margin: 0 0 16px; }
+.cta p.cta-alt { margin: 14px 0 0; font-size: .95rem; }
 @media (max-width: 560px) { .cta { grid-template-columns: 1fr; text-align: center; justify-items: center; } }
 
 .more { margin-top: 56px; }

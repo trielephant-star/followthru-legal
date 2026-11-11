@@ -91,19 +91,37 @@ async function sendEmail(msg: {
   }
 }
 
+// Public TestFlight invite for iPhone testers. Android testers are invited by email later.
+const TESTFLIGHT_URL = "https://testflight.apple.com/join/3aSdxBz7";
+
 function confirmationEmail(platform: Platform) {
-  const phone = platform === "iphone" ? "iPhone" : "Android";
-  const store = platform === "iphone"
-    ? "Apple TestFlight (Apple’s app for beta testing)"
-    : "Google Play";
-  const subject = "You’re on the FollowThru beta list 🦥";
+  const iphone = platform === "iphone";
+  const phone = iphone ? "iPhone" : "Android";
+  const subject = iphone
+    ? "You’re in! Install FollowThru on your iPhone 🦥"
+    : "You’re on the FollowThru beta list 🦥";
+  const nextText = iphone
+    ? [
+      "You can start today. On your iPhone, open this link:",
+      TESTFLIGHT_URL,
+      "",
+      "It opens TestFlight, Apple’s free app for testing new apps (if you don’t have it yet, the link shows you where to get it from the App Store). Tap Accept, then Install, and FollowThru appears on your home screen.",
+    ]
+    : [
+      "What happens next:",
+      "We’re letting Android testers in in small groups. When it’s your turn, you’ll get an email with a Google Play link to install the app.",
+    ];
+  const nextHtml = iphone
+    ? `<p><strong>You can start today.</strong> On your iPhone, tap the button below. It opens TestFlight, Apple’s free app for testing new apps (if you don’t have it yet, the page shows you where to get it from the App Store). Tap <strong>Accept</strong>, then <strong>Install</strong>.</p>
+<p style="margin:22px 0"><a href="${TESTFLIGHT_URL}" style="display:inline-block;background:#1C7F48;color:#ffffff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:999px">Install FollowThru with TestFlight</a></p>
+<p style="font-size:14px;color:#5A4A3E">Or copy this link into Safari on your iPhone: ${TESTFLIGHT_URL}</p>`
+    : `<p><strong>What happens next:</strong> we’re letting Android testers in in small groups. When it’s your turn, you’ll get an email with a Google Play link to install the app.</p>`;
   const text = [
     "Hi there,",
     "",
     `Momo here. You’re on the FollowThru beta list for ${phone}. Thank you for joining!`,
     "",
-    "What happens next:",
-    `We’re letting testers in in small groups. When it’s your turn, you’ll get an invite email from ${store} with a link to install the app.`,
+    ...nextText,
     "",
     "Until then, have a think about the side project you want to move forward. One small Move a day is all it takes.",
     "",
@@ -118,7 +136,7 @@ function confirmationEmail(platform: Platform) {
 <div style="max-width:520px;margin:0 auto">
 <p>Hi there,</p>
 <p>Momo here. You’re on the FollowThru beta list for <strong>${phone}</strong>. Thank you for joining!</p>
-<p><strong>What happens next:</strong> we’re letting testers in in small groups. When it’s your turn, you’ll get an invite email from ${escapeHtml(store)} with a link to install the app.</p>
+${nextHtml}
 <p>Until then, have a think about the side project you want to move forward. One small Move a day is all it takes.</p>
 <p>Questions? Just reply to this email.</p>
 <p>Slowly but surely,<br>Momo, from FollowThru<br><a href="https://usefollowthru.com" style="color:#1C7F48">usefollowthru.com</a></p>

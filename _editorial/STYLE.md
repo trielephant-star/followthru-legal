@@ -62,6 +62,9 @@ missed weeks turning into missed months, guilt, burnout, scope creep.
 - **Ship Log** of every Move and milestone; new scenes unlock as you ship.
 - Status: **free beta** (TestFlight on iPhone, Google Play testing on Android). Don't mention
   prices or Pro.
+- iPhone readers can install it today with the public TestFlight invite:
+  https://testflight.apple.com/join/3aSdxBz7 . Android readers join the list at `/#join`.
+  You may mention this once in the closing paragraph; the page footer box already links both.
 - Privacy: no ads, data never sold, Momo's AI never trained on your data.
 - Never call FollowThru a "habit tracker". Use "Move", "Momo", "builder".
 - Contact: support@usefollowthru.com only. Never any other email address.

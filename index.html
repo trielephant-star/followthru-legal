@@ -95,6 +95,8 @@
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .form-msg { min-height: 1.6em; font-weight: 700; color: var(--ink-soft); }
   .form-msg.ok { color: var(--green); }
+  .form-msg a, .tf-note a, .hero-note a { color: var(--green); font-weight: 800; }
+  .tf-note { color: var(--ink-soft); font-size: 1rem; }
 
   /* Phone mockup (Today screen) */
   .stage { position: relative; display: flex; justify-content: center; }
@@ -279,7 +281,7 @@
           </fieldset>
           <p class="form-msg" role="status" aria-live="polite"></p>
         </form>
-        <p class="hero-note">Free during the beta · iPhone and Android · No spam, ever</p>
+        <p class="hero-note">Free during the beta · No spam, ever · On iPhone? <a href="https://testflight.apple.com/join/3aSdxBz7" rel="noopener">Install it now with TestFlight</a></p>
       </div>
 
       <div class="stage" aria-hidden="true">
@@ -464,11 +466,11 @@
       </div>
       <div class="faq">
         <details><summary>Is FollowThru free?</summary><p>Yes, free during the beta, with everything included. Later there will be a free plan and an optional Pro plan with more from Momo. Beta testers will hear first.</p></details>
-        <details><summary>Which phones does it work on?</summary><p>iPhone (through TestFlight while in beta) and Android (through Google Play testing). Join with the phone you use and we’ll send the right link.</p></details>
+        <details><summary>Which phones does it work on?</summary><p>iPhone and Android. On iPhone, the beta runs through TestFlight, Apple’s free app for testing new apps: <a href="https://testflight.apple.com/join/3aSdxBz7" rel="noopener">open the invite on your iPhone</a> and tap Accept, then Install. On Android, it runs through Google Play testing: join the list and we’ll email you the link.</p></details>
         <details><summary>How is this different from a to-do or habit app?</summary><p>To-do apps let lists grow forever and habit apps punish a missed day. FollowThru asks for one meaningful Move a day for one project, and a coach who knows that project helps you do it.</p></details>
         <details><summary>What if I miss a day?</summary><p>Nothing breaks. Momentum dips a little and comes right back with your next Move. Momo never guilt-trips. He helps you make tomorrow’s Move smaller if that’s what it takes.</p></details>
         <details><summary>What does Momo know about me?</summary><p>Only what you tell him in the app: your project, your Moves and your chats. You can see what he remembers in Settings → What Momo knows, and delete any of it. Your data is never sold or used to train AI.</p></details>
-        <details><summary>When do I get access?</summary><p>We’re letting testers in in small groups. Join the beta and we’ll email you an invite with the link for your phone.</p></details>
+        <details><summary>When do I get access?</summary><p>On iPhone, right now: <a href="https://testflight.apple.com/join/3aSdxBz7" rel="noopener">install it with TestFlight</a>. On Android, we’re letting testers in in small groups. Join the list and we’ll email you an invite.</p></details>
       </div>
     </div>
   </section>
@@ -477,7 +479,7 @@
     <div class="wrap">
       <img class="momo-big reveal" src="momo.svg" alt="Momo the sloth waving" width="150" height="150">
       <h2 class="reveal">Be one of the first to try it.</h2>
-      <p class="lead reveal">Free during the beta. We’ll email you an invite for your phone.</p>
+      <p class="lead reveal">Free during the beta. On iPhone you can start today. On Android, we’ll email you an invite.</p>
       <form class="signup" data-source="footer" novalidate>
         <div class="signup-row">
           <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
@@ -492,6 +494,7 @@
         </fieldset>
         <p class="form-msg" role="status" aria-live="polite"></p>
       </form>
+      <p class="tf-note">On iPhone? <a href="https://testflight.apple.com/join/3aSdxBz7" rel="noopener">Install it now with TestFlight</a></p>
     </div>
   </section>
 </main>
@@ -532,6 +535,7 @@
   const SUPABASE_URL = 'https://drrvokcuzswsgjdwwhmn.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_1Bd-M6BIuXuSFHH4IQwRoA_o8MxOV95';
   const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  const TESTFLIGHT = 'https://testflight.apple.com/join/3aSdxBz7';
 
   document.querySelectorAll('form.signup').forEach((form) => {
     const msg = form.querySelector('.form-msg');
@@ -563,9 +567,19 @@
         if (!res.ok) throw new Error(String(res.status));
         const result = await res.json().catch(() => ({}));
         msg.className = 'form-msg ok';
-        msg.textContent = result.already
-          ? 'You’re already on the list. Momo will be in touch!'
-          : 'You’re in! Watch your inbox for your invite.';
+        if (data.get('platform') === 'iphone') {
+          // iPhone testers can start straight away through TestFlight.
+          msg.textContent = result.already ? 'You’re already on the list! ' : 'You’re in! ';
+          const link = document.createElement('a');
+          link.href = TESTFLIGHT;
+          link.rel = 'noopener';
+          link.textContent = 'Install it now with TestFlight →';
+          msg.append(link);
+        } else {
+          msg.textContent = result.already
+            ? 'You’re already on the list. Momo will be in touch!'
+            : 'You’re in! Watch your inbox for your invite.';
+        }
         form.reset();
       } catch {
         msg.textContent = 'Couldn’t save that. Check your connection and try again.';

@@ -11,6 +11,8 @@ FollowThru is for people building something on the side of a job, school or fami
 Key facts:
 - App store name: FollowThru: The Hustle Coach.
 - Platforms: iPhone (via Apple TestFlight during the beta) and Android (via Google Play testing).
+- Try it on iPhone now (public TestFlight invite): https://testflight.apple.com/join/3aSdxBz7
+- Android: join the beta list at https://usefollowthru.com/#join to get an invite by email.
 - Price: free during the beta. A free plan and an optional Pro plan come at public launch.
 - Privacy: no ads, data never sold, Momo's AI is never trained on your data, and you can delete everything from inside the app.
 - Website: https://usefollowthru.com  ·  Support: support@usefollowthru.com
