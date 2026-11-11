@@ -49,6 +49,9 @@ missed weeks turning into missed months, guilt, burnout, scope creep.
 ## FollowThru facts (use these, don't embellish)
 
 - FollowThru is a **daily accountability coach for side projects**, on iPhone and Android.
+- The app's store name is exactly **FollowThru: The Hustle Coach**. Never write variations like
+  "Side Hustle Coach", "Side Hustle Habits" or "Builder Coach". Plain "FollowThru" is fine in
+  running text.
 - Each day you pick one small **Move** (15, 30 or 60 minutes). Tap **Start now** and **Momo**, a
   friendly sloth coach, breaks it into steps with a timer, drafts writing with you, asks sharp
   questions when you're deciding, and can write the prompt for your AI tool.
@@ -62,7 +65,7 @@ missed weeks turning into missed months, guilt, burnout, scope creep.
 - Privacy: no ads, data never sold, Momo's AI never trained on your data.
 - Never call FollowThru a "habit tracker". Use "Move", "Momo", "builder".
 - Contact: support@usefollowthru.com only. Never any other email address.
-- Momo is "he".
+- Momo is "he". His look: spiky brown hair, green headband, dark jacket with green stripes.
 
 Standard closing paragraph shape (vary the wording, keep the facts):
 

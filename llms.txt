@@ -9,6 +9,7 @@ permalink: /llms.txt
 FollowThru is for people building something on the side of a job, school or family: creators growing an audience, indie app makers, small online store owners, and people starting something new after a layoff. It is not a habit tracker or a to-do list: it focuses on one meaningful step a day for one project, and it never uses streak pressure or guilt. A missed day is just a fresh start; "momentum" grows with each Move and forgives a bad day.
 
 Key facts:
+- App store name: FollowThru: The Hustle Coach.
 - Platforms: iPhone (via Apple TestFlight during the beta) and Android (via Google Play testing).
 - Price: free during the beta. A free plan and an optional Pro plan come at public launch.
 - Privacy: no ads, data never sold, Momo's AI is never trained on your data, and you can delete everything from inside the app.
