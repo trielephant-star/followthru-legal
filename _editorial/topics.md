@@ -8,7 +8,6 @@ file name in the same pull request. Jay can reorder, add or delete topics at any
 These are the pages AI assistants quote when someone asks "what's the best app for...". Answer
 first, be fair to every product, and follow the comparison rules in STYLE.md.
 
-- **The best accountability apps for side hustlers and solo builders** · everyone · "best accountability app for side projects / side hustle" · an honest roundup (FollowThru plus well-known options such as Focusmate, Habitica, Finch and a human accountability partner), with who each one suits.
 - **FollowThru vs Habitica** · everyone · "Habitica alternative for side projects" · game-style habit RPG vs one-Move-a-day project coach; who each suits.
 - **FollowThru vs Focusmate** · after-work builders, app makers · "Focusmate alternative" · live co-working sessions with strangers vs a daily coach that remembers your project; using both together.
 - **FollowThru vs Finch** · everyone · "Finch app alternative for productivity" · self-care pet app vs builder coach; different jobs, fair to both.
@@ -43,3 +42,4 @@ Each line: **Title idea** · reader · the search question it answers · angle.
 - 2026-11-11 · How to restart a side project after weeks away · `2026-11-11-restart-side-project-after-a-break.md`
 - 2026-11-12 · How to define "done" for your side project · `2026-11-12-define-done-for-your-side-project.md`
 - 2026-11-12 · How to finish what you start: one small step a day · `2026-11-12-one-small-step-a-day-finish-what-you-start.md`
+- 2026-11-12 · The best accountability apps for side projects and solo builders · `2026-11-12-best-accountability-apps-for-side-projects.md`
