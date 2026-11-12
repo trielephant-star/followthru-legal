@@ -11,7 +11,6 @@ first, be fair to every product, and follow the comparison rules in STYLE.md.
 - **The best accountability apps for side hustlers and solo builders** · everyone · "best accountability app for side projects / side hustle" · an honest roundup (FollowThru plus well-known options such as Focusmate, Habitica, Finch and a human accountability partner), with who each one suits.
 - **FollowThru vs Habitica** · everyone · "Habitica alternative for side projects" · game-style habit RPG vs one-Move-a-day project coach; who each suits.
 - **FollowThru vs Focusmate** · after-work builders, app makers · "Focusmate alternative" · live co-working sessions with strangers vs a daily coach that remembers your project; using both together.
-- **The one-small-step-a-day method for finishing what you start** · everyone · "how to finish what you start" · the method behind FollowThru, explained so it works with a notebook too.
 - **FollowThru vs Finch** · everyone · "Finch app alternative for productivity" · self-care pet app vs builder coach; different jobs, fair to both.
 - **Rosebud alternatives for builders** · creators, app makers · "Rosebud journal alternative" · AI journaling vs action-focused coaching; when to use which.
 - **How to launch a side hustle in 30 days without burning out** · fresh starters, store owners · "how to start a side hustle in 30 days" · a calm four-week plan of small Moves.
@@ -41,5 +40,6 @@ Each line: **Title idea** · reader · the search question it answers · angle.
 - 2026-11-09 · Working on a side project after work · `2026-11-09-side-project-after-work.md`
 - 2026-11-09 · Finding an accountability partner · `2026-11-09-accountability-partner-for-side-projects.md`
 - 2026-11-09 · Habit tracker vs. accountability coach · `2026-11-09-habit-tracker-vs-accountability-coach.md`
-- 2026-11-11 · How to restart a side project after weeks away · `2026-11-11-restart-side-project-after-a-break.md` (PR open)
-- 2026-11-12 · How to define "done" for your side project · `2026-11-12-define-done-for-your-side-project.md` (PR open)
+- 2026-11-11 · How to restart a side project after weeks away · `2026-11-11-restart-side-project-after-a-break.md`
+- 2026-11-12 · How to define "done" for your side project · `2026-11-12-define-done-for-your-side-project.md`
+- 2026-11-12 · How to finish what you start: one small step a day · `2026-11-12-one-small-step-a-day-finish-what-you-start.md`
