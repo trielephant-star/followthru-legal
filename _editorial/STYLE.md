@@ -39,6 +39,8 @@ missed weeks turning into missed months, guilt, burnout, scope creep.
 
 - **Never invent** statistics, studies, quotes, testimonials, customer stories or personal
   anecdotes ("When I built my app...", "One of our users...").
+- No unsourced claims about groups: avoid "most people", "many builders", "everyone does".
+  Speak to the reader instead ("you probably...", "it can help to...").
 - Cite research only when you are sure it exists, by author and finding, and link only to URLs
   you have actually opened and checked. When unsure, leave it out.
 - Name other products or communities only in fair, factual terms. Never criticize competitors
