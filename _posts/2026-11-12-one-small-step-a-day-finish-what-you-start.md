@@ -2,13 +2,15 @@
 title: "How to finish what you start: one small step a day"
 description: "A simple method for finishing a side project: write a finish line, pick one small step a day, log it and review weekly. Works with a notebook."
 category: Finishing
+image: /assets/blog/one-small-step-a-day-finish-what-you-start.webp
+image_alt: "A desk with a kitchen timer and a sticky note, beside a path of stepping stones leading up a green hill to a flag."
 faq:
   - q: "How long should one small step be?"
     a: "Between 15 and 60 minutes, depending on the energy you have that day. The step should fit in one sitting and end with something you can point to, like a drafted page, a photographed product or a working button. If it takes longer than an hour, split it in two."
   - q: "What if I miss a day?"
     a: "Nothing is lost. Pick the next step and do it. The method works because each day starts fresh, so there is no streak to break and nothing to make up. If you miss several days, make the next step smaller than usual and restart there."
   - q: "How many days until the project is finished?"
-    a: "It depends on the project, but you can estimate it. List the steps between you and your finish line, then divide by the days a week you realistically work. Most people are surprised that a first version needs 20 to 40 small steps, not hundreds. Treat the number as a guess and update it each Sunday."
+    a: "It depends on the project, but you can estimate it. List the steps between you and your finish line, then divide by the days a week you realistically work. A first version is often a few dozen small steps, not hundreds. Treat the number as a guess and update it each Sunday."
   - q: "Do I need an app for this?"
     a: "No. A notebook, a sticky note and a calendar are enough. An app can help by suggesting the step, checking in and remembering your project, but the method is the same on paper."
 ---
