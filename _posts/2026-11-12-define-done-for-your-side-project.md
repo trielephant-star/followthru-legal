@@ -2,6 +2,8 @@
 title: "How to define “done” for your side project (so you can actually finish)"
 description: "Side projects drag on when nobody says what finished looks like. Write a one-sentence finish line, cut what doesn’t fit, and park the rest on a later list."
 category: Finishing
+image: /assets/blog/define-done-for-your-side-project.webp
+image_alt: "Momo the sloth planting a green finish flag at the end of a short stepping-stone path, next to a checklist board with three ticks."
 faq:
   - q: "How do I know when my side project is done?"
     a: "It is done when it meets the finish line you wrote down at the start, not when it feels perfect. A good finish line is one sentence and describes something a stranger could see or use, such as a live link, a first published video, or a shop with five products for sale. If it meets the sentence, you ship, even if you still have ideas."
