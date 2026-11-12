@@ -1,5 +1,9 @@
 CLAUDE.md
 .env.local
-.claude/
+# Local Claude Code files stay private, except the shared skills and project settings
+# that the weekly cloud blog writer also uses.
+.claude/*
+!.claude/skills/
+!.claude/settings.json
 node_modules/
 supabase/.temp/

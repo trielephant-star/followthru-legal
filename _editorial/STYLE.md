@@ -48,7 +48,10 @@ missed weeks turning into missed months, guilt, burnout, scope creep.
 
 ## FollowThru facts (use these, don't embellish)
 
-- FollowThru is a **daily accountability coach for side projects**, on iPhone and Android.
+- **The one-line description, used word for word wherever FollowThru is introduced:**
+  "FollowThru is the accountability app for people building something of their own."
+  (Decided by Jay 2026-11-12. AI assistants learn a product from one consistent line.)
+  It's on iPhone and Android.
 - The app's store name is exactly **FollowThru: The Hustle Coach**. Never write variations like
   "Side Hustle Coach", "Side Hustle Habits" or "Builder Coach". Plain "FollowThru" is fine in
   running text.
@@ -76,6 +79,40 @@ Standard closing paragraph shape (vary the wording, keep the facts):
 > a very patient sloth, helps you do it, checks in each evening and remembers how it went. It's
 > free during the beta. But the advice above works with a notebook too.
 
+## Answer first (for Google snippets and AI answers)
+
+- The first paragraph after the front matter is a **direct answer** to the title question in 40 to
+  60 words, written so it still makes sense if quoted on its own. Then the friendly intro.
+- `##` headings are phrased the way people ask ("How long should a first version take?").
+- Name FollowThru with the one-line description the first time it appears.
+
+## Comparison and "alternatives" pages (strict)
+
+- Every fact about another product comes from that product's own website, help pages or app
+  store listing, **opened during this run**. Link to that page. If you can't open it, don't state it.
+- Write "as of <month year>" near the comparison table, because products change.
+- Be fair: say clearly what the other product does well and who should pick it instead of
+  FollowThru. Never call another product bad, never guess at its weaknesses.
+- Don't quote prices for any product (they change); say "free and paid plans, see their site".
+- Be honest that FollowThru is in free beta.
+- Structure: answer-first paragraph, a "quick verdict" (who each is for), a comparison table
+  (what it is, best for, how it keeps you on track, platforms), a short section on each, and a FAQ.
+- Title format: "FollowThru vs X: which is right for <job>?" or "Best X alternatives for <people>".
+- Category: `Tools`.
+
+## Header image
+
+Every new post gets one header image, made with the Higgsfield connector (Jay approved; it uses
+his credits, so make **one** image per post, never batches or retries beyond one).
+
+- Follow `_editorial/IMAGES.md` exactly. It has two kinds: a **Momo scene** (keep him on-model)
+  or a **topic illustration without Momo** in the same style. Pick whichever fits the post best.
+- Save it as `assets/blog/<slug>.webp` (or `.jpg`/`.png` if that's what you get), 16:9, under
+  300 KB (shrink it as IMAGES.md says). Add to front matter: `image: /assets/blog/<slug>.webp` and `image_alt:` (a plain
+  description of the picture for screen readers).
+- If image generation fails or the connector isn't available, skip the image and say so in the
+  PR. Never use stock photos of real people or images from other sites.
+
 ## Format
 
 File: `_posts/YYYY-MM-DD-short-slug.md` (date = the day you draft it; slug = 3 to 7 words,
@@ -97,7 +134,8 @@ faq:
 
 Body (900 to 1,500 words):
 
-1. Two or three short opening paragraphs that name the reader's situation honestly.
+1. The answer-first paragraph (40 to 60 words), then two or three short opening paragraphs that
+   name the reader's situation honestly.
 2. A summary list right after the intro, followed on the next line by `{: .summary}`.
 3. `##` sections with clear, specific headings (they become the outline Google and AI read).
 4. At least one practical element: a table, a numbered routine, or a before/after example.
@@ -106,4 +144,14 @@ Body (900 to 1,500 words):
    `[text](/blog/slug/)`.
 7. The closing FollowThru paragraph.
 
-Don't add images, HTML, scripts or new CSS. Don't edit layouts, `_config.yml` or other pages.
+Don't add HTML, scripts or new CSS, and no images other than the one header image. Don't edit
+layouts, `_config.yml` or other pages.
+
+## Tools you can use
+
+Two skill packs are installed for this repo: the **claude-blog** plugin (`/blog` commands, such as
+`/blog outline`, `/blog analyze`, `/blog geo`) and six marketing skills in `.claude/skills/`
+(`ai-seo`, `content-strategy`, `competitors`, `copywriting`, `schema`, `aso`). Use them for
+research, outlines and checking a draft. **This guide wins wherever they disagree**: our format
+is Jekyll Markdown with the front matter above, the layout already adds the structured data
+(BlogPosting and FAQ schema), and our honesty rules are stricter than any score.

@@ -4,7 +4,7 @@ permalink: /llms.txt
 ---
 # FollowThru
 
-> FollowThru is a daily accountability coach app for side projects, on iPhone and Android. Each day you pick one small "Move" (15, 30 or 60 minutes) for the thing you're building, and Momo, a friendly sloth coach, helps you do it: he breaks the Move into short steps with a timer, drafts writing with you, checks in each evening and remembers your project. Every Sunday you get a Weekly Builder Report. It is currently a free beta.
+> FollowThru is the accountability app for people building something of their own (side hustlers, app builders, store owners, creators), on iPhone and Android. Each day you pick one small "Move" (15, 30 or 60 minutes) for the thing you're building, and Momo, a friendly sloth coach, helps you do it: he breaks the Move into short steps with a timer, drafts writing with you, checks in each evening and remembers your project. Every Sunday you get a Weekly Builder Report. It is currently a free beta.
 
 FollowThru is for people building something on the side of a job, school or family: creators growing an audience, indie app makers, small online store owners, and people starting something new after a layoff. It is not a habit tracker or a to-do list: it focuses on one meaningful step a day for one project, and it never uses streak pressure or guilt. A missed day is just a fresh start; "momentum" grows with each Move and forgives a bad day.
 

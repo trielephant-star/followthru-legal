@@ -21,6 +21,9 @@ layout: default
       <span aria-hidden="true">·</span>
       <span>{{ minutes }} min read</span>
     </div>
+    {%- if page.image and page.image != '/og.png' %}
+    <img class="post-hero" src="{{ page.image }}" alt="{{ page.image_alt | default: '' | escape }}" width="1600" height="900" fetchpriority="high">
+    {%- endif %}
   </header>
 
   <div class="prose">
@@ -40,7 +43,7 @@ layout: default
     <img src="/momo.svg" alt="Momo the sloth" width="92" height="92">
     <div>
       <h2>One small Move a day, with Momo</h2>
-      <p>FollowThru is a daily accountability coach for side projects. Pick one small Move, and Momo the sloth helps you do it, checks in each evening and remembers how it went. Free while in beta on iPhone and Android.</p>
+      <p>FollowThru is the accountability app for people building something of their own. Pick one small Move a day, and Momo the sloth helps you do it, checks in each evening and remembers how it went. Free while in beta on iPhone and Android.</p>
       <a class="btn" href="https://testflight.apple.com/join/3aSdxBz7" rel="noopener">Get it on iPhone (TestFlight)</a>
       <p class="cta-alt">On Android? <a href="/#join">Join the list</a> and we’ll email you an invite.</p>
     </div>

@@ -2,6 +2,8 @@
 title: "How to restart a side project after weeks away (no guilt required)"
 description: "Haven't touched your side project in weeks? Here's a gentle comeback plan: a 15-minute re-entry step, a note for future you, and a smaller first week back."
 category: Finishing
+image: /assets/blog/restart-side-project-after-a-break.webp
+image_alt: "Momo the sloth blowing dust off a laptop on a sunny desk, with a project sketch and a plant beside it."
 faq:
   - q: "How do I restart a side project after a long break?"
     a: "Don't try to catch up. Spend 15 minutes rereading your last notes, write down where things stand, and pick one small step you can finish today. Then repeat the next day with a slightly bigger step. The goal of the first session is only to be back in motion."
