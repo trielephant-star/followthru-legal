@@ -20,7 +20,6 @@ Each line: **Title idea** · reader · the search question it answers · angle.
 
 ## Up next
 
-2. **How to define "done" for your side project** · app makers, store owners · "how to finish a side project MVP" · one-sentence finish line, cutting scope, a "later" list.
 3. **How to post consistently with a full-time job** · creators · "how to post consistently on YouTube/social with a job" · batching, a small weekly rhythm, low-energy tasks for tired nights.
 4. **Launch your online store in 30 days, 30 minutes a day** · store owners · "how to start an Etsy or Shopify store while working full time" · a day-by-day plan of small Moves.
 5. **The 10-minute weekly review for side projects** · everyone · "weekly review template for side projects" · what to look at on Sunday, three questions, picking next week's three steps.
@@ -43,3 +42,4 @@ Each line: **Title idea** · reader · the search question it answers · angle.
 - 2026-11-09 · Finding an accountability partner · `2026-11-09-accountability-partner-for-side-projects.md`
 - 2026-11-09 · Habit tracker vs. accountability coach · `2026-11-09-habit-tracker-vs-accountability-coach.md`
 - 2026-11-11 · How to restart a side project after weeks away · `2026-11-11-restart-side-project-after-a-break.md` (PR open)
+- 2026-11-12 · How to define "done" for your side project · `2026-11-12-define-done-for-your-side-project.md` (PR open)
