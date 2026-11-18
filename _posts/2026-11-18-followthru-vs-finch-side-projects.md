@@ -59,7 +59,7 @@ It is in free beta, so it is newer and less proven than a long-running app. It i
 
 **Looking after you vs moving a project.** Finch's tasks are about your mood, sleep and routine. FollowThru's Moves are about the thing you are building, such as "write the first three lines of the product description."
 
-**A pet that grows vs a coach that remembers.** Finch's pet grows as you complete self-care. Momo does not grow. He remembers your project from one day to the next, so the evening chat can ask about the shop photos you skipped on Monday.
+**A pet that grows vs a coach that remembers.** Finch's pet grows as you complete self-care. Momo's job is different: he remembers your project from one day to the next, so the evening chat can ask about the shop photos you skipped on Monday.
 
 **General goals vs a next step.** Finch has a goal tracker, which is useful for personal goals. A big project goal like "launch my shop" still needs breaking into steps. A Move is that step, already chosen.
 
