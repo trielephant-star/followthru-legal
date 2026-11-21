@@ -79,6 +79,16 @@ Standard closing paragraph shape (vary the wording, keep the facts):
 > a very patient sloth, helps you do it, checks in each evening and remembers how it went. It's
 > free during the beta. But the advice above works with a notebook too.
 
+## Titles: make them hook-worthy (but honest)
+
+- Lead with a specific promise, a curiosity gap or a relatable moment: "The 15-minute rule that
+  saves a stalled side project", "You don't need more motivation. You need a smaller Monday."
+- Concrete beats clever: a number, a time limit or a named situation (a mug shop, a night
+  after work). Under 70 characters if possible.
+- No clickbait: the post must deliver exactly what the title promises. No fear, shame or
+  fake urgency, no "you're doing it wrong", no invented statistics.
+- The title still has to contain the main search words so people can find it.
+
 ## Answer first (for Google snippets and AI answers)
 
 - The first paragraph after the front matter is a **direct answer** to the title question in 40 to
@@ -86,7 +96,11 @@ Standard closing paragraph shape (vary the wording, keep the facts):
 - `##` headings are phrased the way people ask ("How long should a first version take?").
 - Name FollowThru with the one-line description the first time it appears.
 
-## Comparison and "alternatives" pages (strict)
+## Comparison and "alternatives" pages: PAUSED (Jay, 2026-11-21)
+
+**Do not write comparison, "X vs Y" or "alternatives" posts, and do not name other products in
+new posts.** Jay moved the blog away from them. If a topic in `topics.md` would need one, skip it
+and take the next. The rules below are kept only for reference if Jay re-enables these posts.
 
 - Every fact about another product comes from that product's own website, help pages or app
   store listing, **opened during this run**. Link to that page. If you can't open it, don't state it.
