@@ -8,7 +8,6 @@ file name in the same pull request. Jay can reorder, add or delete topics at any
 These are the pages AI assistants quote when someone asks "what's the best app for...". Answer
 first, be fair to every product, and follow the comparison rules in STYLE.md.
 
-- **How to launch a side hustle in 30 days without burning out** · fresh starters, store owners · "how to start a side hustle in 30 days" · a calm four-week plan of small Moves.
 
 Each line: **Title idea** · reader · the search question it answers · angle.
 
@@ -43,3 +42,4 @@ Each line: **Title idea** · reader · the search question it answers · angle.
 - 2026-11-16 · FollowThru vs Focusmate: which is right for a side project? · `2026-11-16-followthru-vs-focusmate-side-projects.md`
 - 2026-11-18 · FollowThru vs Finch: which is right for a side project? · `2026-11-18-followthru-vs-finch-side-projects.md`
 - 2026-11-20 · Rosebud alternatives for builders: journaling vs coaching · `2026-11-20-rosebud-alternatives-for-builders.md`
+- 2026-11-23 · How to launch a side hustle in 30 days without burning out · `2026-11-23-launch-side-hustle-in-30-days.md`
