@@ -13,7 +13,6 @@ Each line: **Title idea** · reader · the search question it answers · angle.
 
 ## Up next
 
-3. **How to post consistently with a full-time job** · creators · "how to post consistently on YouTube/social with a job" · batching, a small weekly rhythm, low-energy tasks for tired nights.
 4. **Launch your online store in 30 days, 30 minutes a day** · store owners · "how to start an Etsy or Shopify store while working full time" · a day-by-day plan of small Moves.
 5. **The 10-minute weekly review for side projects** · everyone · "weekly review template for side projects" · what to look at on Sunday, three questions, picking next week's three steps.
 6. **Shiny new idea syndrome: how to stop starting and finish one project** · app makers, creators · "how to stop starting new projects" · an idea parking lot, one project in focus.
@@ -43,3 +42,4 @@ Each line: **Title idea** · reader · the search question it answers · angle.
 - 2026-11-18 · FollowThru vs Finch: which is right for a side project? · `2026-11-18-followthru-vs-finch-side-projects.md`
 - 2026-11-20 · Rosebud alternatives for builders: journaling vs coaching · `2026-11-20-rosebud-alternatives-for-builders.md`
 - 2026-11-23 · How to launch a side hustle in 30 days without burning out · `2026-11-23-launch-side-hustle-in-30-days.md`
+- 2026-11-25 · How to post consistently with a full-time job · `2026-11-25-post-consistently-with-a-full-time-job.md`
