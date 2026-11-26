@@ -25,7 +25,7 @@
 <main>
 <p class="home"><a href="../">&larr; FollowThru home</a></p>
 <h1>FollowThru Privacy Policy</h1>
-<p class="meta">Last updated: 5 November 2026</p>
+<p class="meta">Last updated: 26 November 2026</p>
 
 <p class="short">FollowThru is a daily accountability app for people building something of their own, with Momo the sloth as your coach. Short version: your data is yours. We don't sell it, we don't show ads, Momo's AI is never trained on it, and you can delete everything from inside the app.</p>
 
@@ -53,21 +53,26 @@
 
 <h2>Email</h2>
 <p>Sign-in codes are sent by our email delivery provider (Resend) on our behalf. We only email you codes you ask for and replies if you write to us.</p>
+<p><strong>Beta sign-ups on this website:</strong> if you join the beta list at usefollowthru.com, we save your email address and phone type (iPhone or Android), and Resend sends you one confirmation email. We use that address only to send your beta invite and beta news, and we delete it whenever you ask: email <a href="mailto:support@usefollowthru.com">support@usefollowthru.com</a>.</p>
 
 <h2>Subscriptions</h2>
-<p>FollowThru is free during the beta. When FollowThru Pro launches, payment is handled by Apple or Google; we never see your card details. A service called RevenueCat tells the app whether your account has Pro, using your account's random id.</p>
+<p>FollowThru is free to use for now. When FollowThru Pro launches, payment is handled by Apple or Google; we never see your card details. A service called RevenueCat tells the app whether your account has Pro, using your account's random id.</p>
 
 <h2>Usage statistics</h2>
 <p>To learn which features help, FollowThru sends usage events to PostHog, such as "checked in on a Move" or "started a focus timer", with your account's random id, the app version and your phone type. They never include what you write: no Moves, notes, chats or names. Turn this off any time in Settings &rarr; Share usage stats.</p>
 
+<h2>Crash reports</h2>
+<p>If the app crashes or hits an unexpected error, FollowThru sends the error to Sentry so it can be fixed. The report has the error, the screen it happened on, the app version, your phone model and its operating system, and your account's random id. It never includes your name, email, Moves, notes or chats. Only errors are sent; we don't use Sentry to track performance or how you use the app.</p>
+
 <h2>Notifications</h2>
-<p>Check-ins and the focus timer's "time's up" are scheduled on your phone itself. They only appear if you allow notifications; turn them off in the app or in your phone's settings.</p>
+<p>Check-ins and the focus timer's "time's up" are scheduled on your phone itself.</p>
+<p>One notification comes from our server: if you leave the app while Momo is still writing a reply, we send it to you as a notification showing the start of his reply. For this, the app saves your phone's push token (an Expo push token, which identifies the app on your phone, not you) to your account. The message travels through Expo's push service and then Apple (APNs) or Google (Firebase Cloud Messaging) to reach your phone.</p>
+<p>Notifications only appear if you allow them. Turn them off in the app or in your phone's settings, and this server notification stops too.</p>
 
 <h2>What we don't do</h2>
 <ul>
   <li>No ads, and no selling, renting or sharing your data for advertising.</li>
   <li>No tracking you across other apps or websites.</li>
-  <li>No crash-reporting tools at this time. If we add any, this page changes first.</li>
   <li>No medical, diagnostic or mental-health service. FollowThru is a productivity coach, not a replacement for professional care.</li>
 </ul>
 
